@@ -45,6 +45,9 @@ final class ViewController: BaseViewController {
         view.endEditing(true)
     }
 
+    @objc private func navigateToDetailVC() {
+    }
+
     // MARK: - Helpers
 
     private func updateNavigationTitle() {
