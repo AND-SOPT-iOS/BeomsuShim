@@ -29,6 +29,18 @@ final class ViewController: BaseViewController {
         updateNavigationTitle()
     }
 
+    @objc private func previousField() {
+        if contentTextView.isFirstResponder {
+            titleTextField.becomeFirstResponder()
+        }
+    }
+
+    @objc private func nextField() {
+        if titleTextField.isFirstResponder {
+            contentTextView.becomeFirstResponder()
+        }
+    }
+
     // MARK: - Helpers
 
     private func updateNavigationTitle() {
