@@ -16,6 +16,9 @@ final class DetailViewController: BaseViewController {
     private let backButton = UIButton(type: .system)
     private let stackView = UIStackView()
 
+    private var receivedTitle: String?
+    private var receivedContent: String?
+
     // MARK: - Actions
 
     @objc private func backButtonTapped() {
@@ -25,6 +28,15 @@ final class DetailViewController: BaseViewController {
         }
 
         navigationController.popViewController(animated: true)
+    }
+
+    // MARK: - Bindings
+
+    func bind(title: String, content: String) {
+        receivedTitle = title
+        receivedContent = content
+        titleLabel.text = receivedTitle
+        contentLabel.text = receivedContent
     }
 
     // MARK: - UI
