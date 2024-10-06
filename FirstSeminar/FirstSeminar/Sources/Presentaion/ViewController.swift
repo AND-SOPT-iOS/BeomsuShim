@@ -21,6 +21,14 @@ final class ViewController: BaseViewController {
 
     private var switchPushMode: Bool = false
 
+    // MARK: - Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        contentTextView.delegate = self
+    }
+
     // MARK: - Actions
 
     @objc private func switchModeButtonTapped() {
@@ -165,5 +173,21 @@ final class ViewController: BaseViewController {
             $0.left.right.equalToSuperview().inset(16)
             $0.bottom.greaterThanOrEqualTo(nextButton.snp.top).offset(-10)
         }
+    }
+}
+// MARK: - UITextViewDelegate
+
+extension ViewController: UITextViewDelegate {
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        removePlaceholder()
+        textView.layer.borderColor = UIColor.systemBlue.cgColor
+        textView.layer.borderWidth = 1.0
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        showPlaceholder()
+        textView.layer.borderColor = UIColor.systemGray4.cgColor
+        textView.layer.borderWidth = 0.5
     }
 }
