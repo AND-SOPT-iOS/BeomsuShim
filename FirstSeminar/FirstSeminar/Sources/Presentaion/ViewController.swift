@@ -41,6 +41,10 @@ final class ViewController: BaseViewController {
         }
     }
 
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     // MARK: - Helpers
 
     private func updateNavigationTitle() {
