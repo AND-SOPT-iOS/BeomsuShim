@@ -30,6 +30,12 @@ final class ViewController: BaseViewController {
         contentTextView.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        updateNavigationTitle()
+    }
+
     // MARK: - Actions
 
     @objc private func switchModeButtonTapped() {
