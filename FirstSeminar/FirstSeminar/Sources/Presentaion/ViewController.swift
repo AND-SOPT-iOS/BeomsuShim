@@ -61,8 +61,8 @@ final class ViewController: BaseViewController {
     }
 
     @objc private func navigateToDetailVC() {
-        guard let title = titleTextField.text, !title.isEmpty,
-              let content = contentTextView.text, !content.isEmpty
+        guard let title = titleTextField.text, let content = contentTextView.text,
+              !title.isEmpty && content != placeholderText
         else {
             showAlertView()
             return
