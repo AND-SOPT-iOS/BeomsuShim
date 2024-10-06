@@ -26,6 +26,7 @@ final class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        titleTextField.delegate = self
         contentTextView.delegate = self
     }
 
@@ -175,6 +176,26 @@ final class ViewController: BaseViewController {
         }
     }
 }
+
+// MARK: - UITextFieldDelegate
+
+extension ViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        contentTextView.becomeFirstResponder()
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.systemBlue.cgColor
+        textField.layer.borderWidth = 1.0
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.systemGray4.cgColor
+        textField.layer.borderWidth = 0.5
+    }
+}
+
 // MARK: - UITextViewDelegate
 
 extension ViewController: UITextViewDelegate {
