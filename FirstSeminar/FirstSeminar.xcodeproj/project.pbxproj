@@ -14,6 +14,7 @@
 		05E2A6BA2CB283B100B5D243 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E2A6B82CB283B100B5D243 /* ViewController.swift */; };
 		05E2A6BD2CB2859100B5D243 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05E2A6BC2CB2859100B5D243 /* SnapKit */; };
 		05E2A6C22CB285A200B5D243 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 05E2A6C12CB285A200B5D243 /* Then */; };
+		05E2A6C72CB2918A00B5D243 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E2A6C62CB2918A00B5D243 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		05E2A6B22CB2839000B5D243 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05E2A6B32CB2839000B5D243 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		05E2A6B82CB283B100B5D243 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05E2A6C62CB2918A00B5D243 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05E2A6BA2CB283B100B5D243 /* ViewController.swift in Sources */,
+				05E2A6C72CB2918A00B5D243 /* BaseViewController.swift in Sources */,
 				05E2A6B52CB2839000B5D243 /* AppDelegate.swift in Sources */,
 				05E2A6B62CB2839000B5D243 /* SceneDelegate.swift in Sources */,
 			);
