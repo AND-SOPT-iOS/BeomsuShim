@@ -55,6 +55,16 @@ final class ViewController: BaseViewController {
     }
 
     @objc private func navigateToDetailVC() {
+        let vc = DetailViewController()
+
+        if switchPushMode {
+            navigationController?.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        } else {
+            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.navigationBar.tintColor = .label
+            navigationController?.navigationBar.topItem?.title = ""
+        }
     }
 
     // MARK: - Helpers
