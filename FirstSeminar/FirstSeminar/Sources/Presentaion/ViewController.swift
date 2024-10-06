@@ -59,6 +59,21 @@ final class ViewController: BaseViewController {
         fadeTextAnimation.type = .fade
         navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
     }
+
+    private func showPlaceholder() {
+        if contentTextView.text.isEmpty {
+            contentTextView.text = placeholderText
+            contentTextView.textColor = UIColor.systemGray3
+        }
+    }
+
+    private func removePlaceholder() {
+        if contentTextView.text == placeholderText {
+            contentTextView.text = nil
+            contentTextView.textColor = UIColor.label
+        }
+    }
+
     private func configureToolbar() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
