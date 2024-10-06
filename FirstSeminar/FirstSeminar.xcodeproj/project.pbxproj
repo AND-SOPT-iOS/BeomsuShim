@@ -15,6 +15,7 @@
 		05E2A6BD2CB2859100B5D243 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05E2A6BC2CB2859100B5D243 /* SnapKit */; };
 		05E2A6C22CB285A200B5D243 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 05E2A6C12CB285A200B5D243 /* Then */; };
 		05E2A6C72CB2918A00B5D243 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E2A6C62CB2918A00B5D243 /* BaseViewController.swift */; };
+		05E2A6C92CB298CC00B5D243 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E2A6C82CB298CC00B5D243 /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		05E2A6B32CB2839000B5D243 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		05E2A6B82CB283B100B5D243 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		05E2A6C62CB2918A00B5D243 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		05E2A6C82CB298CC00B5D243 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		05E2A6C42CB2917200B5D243 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				05E2A6C82CB298CC00B5D243 /* UIView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				05E2A6C72CB2918A00B5D243 /* BaseViewController.swift in Sources */,
 				05E2A6B52CB2839000B5D243 /* AppDelegate.swift in Sources */,
 				05E2A6B62CB2839000B5D243 /* SceneDelegate.swift in Sources */,
+				05E2A6C92CB298CC00B5D243 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
