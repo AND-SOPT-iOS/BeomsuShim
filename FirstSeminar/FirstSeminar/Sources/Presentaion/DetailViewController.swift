@@ -7,23 +7,38 @@
 
 import UIKit
 
-class DetailViewController: BaseViewController {
+final class DetailViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Properties
 
-        // Do any additional setup after loading the view.
+    private let titleLabel = UILabel()
+    private let contentLabel = UILabel()
+    private let backButton = UIButton(type: .system)
+    private let stackView = UIStackView()
+
+    // MARK: - UI
+
+    override func setStyle() {
+        titleLabel.do { $0.configureLabel(ofSize: 25, weight: .bold) }
+        contentLabel.do { $0.configureLabel(ofSize: 17, weight: .medium) }
+
+        backButton.do {
+            $0.configureButton("이전 화면으로", titleColor: .systemBackground, backgroundColor: .label)
+        }
+
+        stackView.do {
+            $0.addArrangedSubviews(titleLabel, contentLabel, backButton)
+            $0.configureStackView()
+        }
     }
-    
 
-    /*
-    // MARK: - Navigation
+    override func setUI() { view.addSubview(stackView) }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func setAutoLayout() {
+        backButton.snp.makeConstraints { $0.height.equalTo(50) }
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            $0.left.right.equalToSuperview().inset(16)
+        }
     }
-    */
-
 }
