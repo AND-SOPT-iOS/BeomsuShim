@@ -59,6 +59,42 @@ final class ViewController: BaseViewController {
         fadeTextAnimation.type = .fade
         navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
     }
+    private func configureToolbar() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+
+        let previousButton = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.up"),
+            style: .plain,
+            target: self,
+            action: #selector(previousField)
+        )
+
+        let nextButton = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.down"),
+            style: .plain,
+            target: self,
+            action: #selector(nextField)
+        )
+
+        let flexSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil
+        )
+
+        let doneButton = UIBarButtonItem(
+            title: "키보드 내리기",
+            style: .plain,
+            target: self,
+            action: #selector(dismissKeyboard)
+        )
+
+        toolbar.items = [previousButton, nextButton, flexSpace, doneButton]
+
+        titleTextField.inputAccessoryView = toolbar
+        contentTextView.inputAccessoryView = toolbar
+    }
 
     // MARK: - UI
 
