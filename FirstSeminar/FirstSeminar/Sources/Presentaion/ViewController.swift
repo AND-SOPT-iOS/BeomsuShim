@@ -64,6 +64,7 @@ final class ViewController: BaseViewController {
         guard let title = titleTextField.text, !title.isEmpty,
               let content = contentTextView.text, !content.isEmpty
         else {
+            showAlertView()
             return
         }
 
@@ -141,6 +142,19 @@ final class ViewController: BaseViewController {
 
         titleTextField.inputAccessoryView = toolbar
         contentTextView.inputAccessoryView = toolbar
+    }
+
+    private func showAlertView() {
+        let alertController = UIAlertController(
+            title: "빈값이 있습니다.",
+            message: "필드를 모두 채워주세요.",
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true)
     }
 
     // MARK: - UI
