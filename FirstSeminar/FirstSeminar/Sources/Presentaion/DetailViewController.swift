@@ -16,6 +16,17 @@ final class DetailViewController: BaseViewController {
     private let backButton = UIButton(type: .system)
     private let stackView = UIStackView()
 
+    // MARK: - Actions
+
+    @objc private func backButtonTapped() {
+        guard let navigationController = navigationController else {
+            dismiss(animated: true)
+            return
+        }
+
+        navigationController.popViewController(animated: true)
+    }
+
     // MARK: - UI
 
     override func setStyle() {
@@ -24,6 +35,7 @@ final class DetailViewController: BaseViewController {
 
         backButton.do {
             $0.configureButton("이전 화면으로", titleColor: .systemBackground, backgroundColor: .label)
+            $0.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         }
 
         stackView.do {
