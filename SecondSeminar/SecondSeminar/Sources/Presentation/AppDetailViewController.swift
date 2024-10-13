@@ -113,7 +113,7 @@ final class AppDetailViewController: BaseViewController {
         currentRating = sender.tag + 1
         updateStarImages()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.showSubmissionAlert()
         }
     }
@@ -131,7 +131,7 @@ final class AppDetailViewController: BaseViewController {
             }
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.showSubmissionAlert()
         }
     }
@@ -214,7 +214,7 @@ final class AppDetailViewController: BaseViewController {
         UIView.animate(withDuration: 0.2, animations: {
             alertView.alpha = 1
         }) { _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 UIView.animate(withDuration: 0.3, animations: {
                     alertView.alpha = 0
                 }) { _ in
