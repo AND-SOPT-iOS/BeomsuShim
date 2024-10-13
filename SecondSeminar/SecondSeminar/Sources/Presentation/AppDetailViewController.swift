@@ -20,7 +20,6 @@ final class AppDetailViewController: BaseViewController {
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let titleStackView = UIStackView()
-
     private let installButton = UIButton(type: .system)
     private let shareButton = UIButton(type: .system)
 
@@ -78,7 +77,6 @@ final class AppDetailViewController: BaseViewController {
     private let reviewContentLabel = UILabel()
 
     private let tapToRateTitleLabel = UILabel()
-
     private var tapToRateButton = [UIButton(type: .system)]
     private let starsStackView = UIStackView()
     private let emptyStarImage = UIImage(systemName: "star")
@@ -104,7 +102,10 @@ final class AppDetailViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        reviewContentView.layer.shadowPath = UIBezierPath(roundedRect: reviewContentView.bounds, cornerRadius: 20).cgPath
+        reviewContentView.layer.shadowPath = UIBezierPath(
+            roundedRect: reviewContentView.bounds,
+            cornerRadius: 20
+        ).cgPath
     }
 
     // MARK: - Actions
@@ -987,6 +988,8 @@ private extension AppDetailViewController {
         }
     }
 }
+
+// MARK: - Subview Setup
 
 private extension AppDetailViewController {
 
