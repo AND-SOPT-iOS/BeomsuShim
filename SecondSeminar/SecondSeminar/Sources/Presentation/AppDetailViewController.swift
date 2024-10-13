@@ -97,9 +97,6 @@ final class AppDetailViewController: BaseViewController {
 
         setDelegates()
         setNavigationBarStyle()
-        setStyle()
-        setUI()
-        setLayout()
         configureRatingStarButtons()
         setPanGesture()
     }
