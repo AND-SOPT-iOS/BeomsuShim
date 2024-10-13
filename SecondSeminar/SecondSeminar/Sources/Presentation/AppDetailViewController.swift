@@ -676,43 +676,7 @@ final class AppDetailViewController: BaseViewController {
     override func setUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-
-        contentView.addSubview(iconImageView)
-        contentView.addSubview(titleStackView)
-        contentView.addSubview(installButton)
-        contentView.addSubview(shareButton)
-        contentView.addSubview(firstHorizontalDividerView)
-        contentView.addSubview(ratingInfoStackView)
-        contentView.addSubview(firstVerticalDividerView)
-        contentView.addSubview(prizeInfoStackView)
-        contentView.addSubview(secondVerticalDividerView)
-        contentView.addSubview(ageInfoStackView)
-        contentView.addSubview(secondHorizontalDividerView)
-        contentView.addSubview(whatsNewButton)
-        contentView.addSubview(versionLabel)
-        contentView.addSubview(updatedTimeLabel)
-        contentView.addSubview(updatedDescriptionLabel)
-        contentView.addSubview(previewTitleLabel)
-        contentView.addSubview(previewImageView)
-        contentView.addSubview(supportDeviceImageView)
-        contentView.addSubview(supportDeviceLabel)
-        contentView.addSubview(thirdHorizontalDividerView)
-        contentView.addSubview(descriptionLabel)
-        contentView.addSubview(developerNameButton)
-        contentView.addSubview(ratingAndReviewButton)
-        contentView.addSubview(secondRatingLabel)
-        contentView.addSubview(secondRatingStarLabel)
-        contentView.addSubview(secondReviewCountLabel)
-        contentView.addSubview(mostHelpfulTitleLabel)
-        contentView.addSubview(reviewContentView)
-
-        reviewContentView.addSubview(reviewTitleLabel)
-        reviewContentView.addSubview(reviewSubtitleStackView)
-        reviewContentView.addSubview(reviewContentLabel)
-
-        contentView.addSubview(tapToRateTitleLabel)
-        contentView.addSubview(starsStackView)
-        contentView.addSubview(writeReviewAndAppSupportStackView)
+        addSubviewsToContentView()
     }
 
     override func setLayout() {
@@ -1021,5 +985,24 @@ private extension AppDetailViewController {
                 starsStackView.addArrangedSubview(button)
             }
         }
+    }
+}
+
+private extension AppDetailViewController {
+
+    func addSubviewsToContentView() {
+        contentView.addSubviews(
+            iconImageView, titleStackView, installButton, shareButton, firstHorizontalDividerView,
+            ratingInfoStackView, firstVerticalDividerView, prizeInfoStackView,
+            secondVerticalDividerView, ageInfoStackView, secondHorizontalDividerView,
+            whatsNewButton, versionLabel, updatedTimeLabel, updatedDescriptionLabel,
+            previewTitleLabel, previewImageView, supportDeviceImageView, supportDeviceLabel,
+            thirdHorizontalDividerView, descriptionLabel, developerNameButton,
+            ratingAndReviewButton, secondRatingLabel, secondRatingStarLabel, secondReviewCountLabel,
+            mostHelpfulTitleLabel, reviewContentView, tapToRateTitleLabel, starsStackView,
+            writeReviewAndAppSupportStackView
+        )
+
+        reviewContentView.addSubviews(reviewTitleLabel, reviewSubtitleStackView, reviewContentLabel)
     }
 }
