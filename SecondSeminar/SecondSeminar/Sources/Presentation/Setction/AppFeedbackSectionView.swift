@@ -40,8 +40,8 @@ final class AppFeedbackSectionView: BaseView {
     private let starCount = 5
     private var currentRating = 0
 
-    private let writeReviewButton = UIButton(type: .system)
-    private let appSupportButton = UIButton(type: .system)
+    let writeReviewButton = UIButton(type: .system)
+    let appSupportButton = UIButton(type: .system)
     private let writeReviewAndAppSupportStackView = UIStackView()
 
     // MARK: - Initializer

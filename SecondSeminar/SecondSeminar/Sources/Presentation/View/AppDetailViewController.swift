@@ -32,8 +32,25 @@ final class AppDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setAddTargets()
         setDelegates()
         setNavigationBarStyle()
+    }
+
+    // MARK: - Actions
+
+    @objc private func writeReviewButtonTapped() {
+        let vc = WriteReviewViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true)
+    }
+
+    private func setAddTargets() {
+        appFeedbackSectionView.writeReviewButton.addTarget(
+            self,
+            action: #selector(writeReviewButtonTapped),
+            for: .touchUpInside
+        )
     }
 
     // MARK: - Helpers
