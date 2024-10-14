@@ -48,10 +48,19 @@ final class WriteReviewViewController: BaseViewController {
 
         setAddTargets()
         setDelegates()
+        setNavigationBarStyle()
         configureRatingStarButtons()
     }
 
     // MARK: - Actions
+
+    @objc private func cancelButtonTapped() {
+        dismiss(animated: true)
+    }
+
+    @objc private func submitButtonTapped() {
+        dismiss(animated: true)
+    }
 
     @objc private func starTapped(_ sender: UIButton) {
         currentRating = sender.tag + 1
@@ -90,6 +99,28 @@ final class WriteReviewViewController: BaseViewController {
     }
 
     // MARK: - UI
+
+    private func setNavigationBarStyle() {
+        navigationItem.title = "리뷰 작성"
+
+        let cancelButton = UIButton(type: .system).then {
+            $0.setTitle("취소", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+            $0.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        }
+
+        let submitButton = UIButton(type: .system).then {
+            $0.setTitle("제출", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+            $0.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
+        }
+
+        let cancelBarButtonItem = UIBarButtonItem(customView: cancelButton)
+        let submitBarButtonItem = UIBarButtonItem(customView: submitButton)
+
+        navigationItem.leftBarButtonItem = cancelBarButtonItem
+        navigationItem.rightBarButtonItem = submitBarButtonItem
+    }
 
     override func setStyle() {
         iconImageView.do {
