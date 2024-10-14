@@ -135,20 +135,12 @@ final class AppDetailViewController: BaseViewController {
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 5
             $0.layer.borderWidth = 0.5
-            $0.layer.borderColor = UIColor.systemGray6.cgColor
+            $0.layer.borderColor = UIColor.systemGray5.cgColor
         }
 
         firstHorizontalDividerView.do { $0.configureDivider() }
         secondHorizontalDividerView.do { $0.configureDivider() }
         thirdHorizontalDividerView.do { $0.configureDivider() }
-
-        secondHorizontalDividerView.do {
-            $0.backgroundColor = .systemGray2
-        }
-
-        thirdHorizontalDividerView.do {
-            $0.backgroundColor = .systemGray2
-        }
     }
 
     override func setUI() {
@@ -185,7 +177,7 @@ final class AppDetailViewController: BaseViewController {
         }
 
         tossIcon.snp.makeConstraints {
-            $0.size.equalTo(25)
+            $0.size.equalTo(28)
         }
 
         appDetailHeaderView.snp.makeConstraints {
