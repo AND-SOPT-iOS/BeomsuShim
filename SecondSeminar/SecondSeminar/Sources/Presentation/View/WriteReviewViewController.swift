@@ -71,7 +71,10 @@ final class WriteReviewViewController: BaseViewController {
         let vc = EditNicknameViewController()
         vc.delegate = self
 
-        if let currentNickname = nicknameButton.titleLabel?.text?.replacingOccurrences(of: "별명: ", with: "") {
+        if let currentNickname = nicknameButton.titleLabel?.text?.replacingOccurrences(
+            of: "별명: ",
+            with: ""
+        ) {
             vc.bindNickname(currentNickname)
         }
 
