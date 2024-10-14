@@ -11,6 +11,7 @@ final class EditNicknameViewController: BaseViewController {
 
     // MARK: - Properties
 
+    private var updateButton = UIButton(type: .system)
     private let nicknameTitleLabel = UILabel()
     private let nicknameTextField = UITextField()
     private let nicknameTextInputView = UIView()
@@ -21,6 +22,7 @@ final class EditNicknameViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setAddTargets()
         setNavigationBarStyle()
     }
 
@@ -30,16 +32,33 @@ final class EditNicknameViewController: BaseViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text, !text.isEmpty {
+            updateButton.isEnabled = true
+        } else {
+            updateButton.isEnabled = false
+        }
+    }
+
+    private func setAddTargets() {
+        nicknameTextField.addTarget(
+            self,
+            action: #selector(textFieldDidChange),
+            for: .editingChanged
+        )
+    }
+
     // MARK: - UI
 
     private func setNavigationBarStyle() {
-        let updateButton = UIButton(type: .system).then {
+        updateButton.do {
             $0.setTitle("업데이트", for: .normal)
             $0.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
             $0.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
         }
 
         let updateBarButtonItem = UIBarButtonItem(customView: updateButton)
+        updateBarButtonItem.isEnabled = false
 
         navigationItem.rightBarButtonItem = updateBarButtonItem
     }
