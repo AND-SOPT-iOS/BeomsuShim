@@ -70,6 +70,8 @@ final class AppDetailViewController: BaseViewController {
         }
     }
 
+    // MARK: - Helpers
+
     private func setAddTargets() {
         whatsNewSectionView.whatsNewButton.addTarget(
             self,
@@ -101,8 +103,6 @@ final class AppDetailViewController: BaseViewController {
             for: .touchUpInside
         )
     }
-
-    // MARK: - Helpers
 
     private func setDelegates() {
         scrollView.delegate = self
