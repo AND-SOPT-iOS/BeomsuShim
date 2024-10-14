@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol AppFeedbackSectionDelegate: AnyObject {
+
+    func displaySubmissionAlert(_ alertView: UIView)
+}
+
 final class AppFeedbackSectionView: BaseView {
 
     // MARK: - Properties
+
+    weak var delegate: AppFeedbackSectionDelegate?
 
     private let ratingAndReviewButton = UIButton(type: .system)
     private let secondRatingLabel = UILabel()
@@ -410,9 +417,7 @@ private extension AppFeedbackSectionView {
 
         addSubview(alertView)
 
-        alertView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
+        delegate?.displaySubmissionAlert(alertView)
 
         starImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()

@@ -40,6 +40,7 @@ final class AppDetailViewController: BaseViewController {
 
     private func setDelegates() {
         scrollView.delegate = self
+        appFeedbackSectionView.delegate = self
     }
 
     // MARK: - UI
@@ -225,6 +226,19 @@ extension AppDetailViewController: UIScrollViewDelegate {
                     },
                     completion: nil)
             }
+        }
+    }
+}
+
+// MARK: - AppFeedbackSectionDelegate
+
+extension AppDetailViewController: AppFeedbackSectionDelegate {
+
+    func displaySubmissionAlert(_ alertView: UIView) {
+        view.addSubview(alertView)
+
+        alertView.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
 }
