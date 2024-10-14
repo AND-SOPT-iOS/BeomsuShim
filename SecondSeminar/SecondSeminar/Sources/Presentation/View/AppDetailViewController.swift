@@ -124,8 +124,6 @@ final class AppDetailViewController: BaseViewController {
     }
 
     override func setStyle() {
-        view.backgroundColor = .systemBackground
-
         scrollView.do {
             $0.automaticallyAdjustsScrollIndicatorInsets = false
         }
