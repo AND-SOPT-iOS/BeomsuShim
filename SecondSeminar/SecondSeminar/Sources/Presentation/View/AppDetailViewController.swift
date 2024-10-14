@@ -46,24 +46,15 @@ final class AppDetailViewController: BaseViewController {
     // MARK: - Actions
 
     @objc private func navigateToVersionHistoryVC() {
-        let vc = VersionHistoryViewController()
-        navigationController?.pushViewController(vc, animated: true)
-        navigationItem.title = "뒤로"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigateTo(VersionHistoryViewController())
     }
 
     @objc private func navigateToDeveloperAppVC() {
-        let vc = DeveloperAppViewController()
-        navigationController?.pushViewController(vc, animated: true)
-        navigationItem.title = "뒤로"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigateTo(DeveloperAppViewController())
     }
 
     @objc private func navigateToSeeAllReviewVC() {
-        let vc = SeeAllReviewViewController()
-        navigationController?.pushViewController(vc, animated: true)
-        navigationItem.title = "뒤로"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigateTo(SeeAllReviewViewController())
     }
 
     @objc private func navigateToWriteReviewVC() {
@@ -116,6 +107,12 @@ final class AppDetailViewController: BaseViewController {
     private func setDelegates() {
         scrollView.delegate = self
         appFeedbackSectionView.delegate = self
+    }
+
+    private func navigateTo(_ viewController: UIViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
+        navigationItem.title = "뒤로"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     // MARK: - UI
