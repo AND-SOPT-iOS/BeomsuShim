@@ -26,8 +26,7 @@ final class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleTextField.delegate = self
-        contentTextView.delegate = self
+        setDelegates()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -82,6 +81,11 @@ final class ViewController: BaseViewController {
     }
 
     // MARK: - Helpers
+
+    private func setDelegates() {
+        titleTextField.delegate = self
+        contentTextView.delegate = self
+    }
 
     private func updateNavigationTitle() {
         navigationItem.title = switchPushMode ? "모달" : "내비게이션"
