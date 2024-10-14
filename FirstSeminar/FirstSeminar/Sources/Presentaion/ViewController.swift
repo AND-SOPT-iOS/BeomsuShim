@@ -87,55 +87,6 @@ final class ViewController: BaseViewController {
         contentTextView.delegate = self
     }
 
-    private func updateNavigationTitle() {
-        navigationItem.title = switchPushMode ? "모달" : "내비게이션"
-    }
-
-    private func applyFadeAnimationToNavigationBar() {
-        fadeTextAnimation.duration = 0.3
-        fadeTextAnimation.type = .fade
-        navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
-    }
-
-    private func showPlaceholder() {
-        if contentTextView.text.isEmpty {
-            contentTextView.text = placeholderText
-            contentTextView.textColor = UIColor.systemGray3
-        }
-    }
-
-    private func removePlaceholder() {
-        if contentTextView.text == placeholderText {
-            contentTextView.text = nil
-            contentTextView.textColor = UIColor.label
-        }
-    }
-
-    private func configureToolbar() {
-        let toolbar = KeyboardToolbarHelper.createToolbar(
-            target: self,
-            previousSelector: #selector(previousField),
-            nextSelector: #selector(nextField),
-            dismissSelector: #selector(dismissKeyboard)
-        )
-
-        titleTextField.inputAccessoryView = toolbar
-        contentTextView.inputAccessoryView = toolbar
-    }
-
-    private func showAlertView() {
-        let alertController = UIAlertController(
-            title: "빈값이 있습니다.",
-            message: "필드를 모두 채워주세요.",
-            preferredStyle: .alert
-        )
-
-        let okAction = UIAlertAction(title: "확인", style: .default)
-        alertController.addAction(okAction)
-
-        present(alertController, animated: true)
-    }
-
     // MARK: - UI
 
     override func setStyle() {
@@ -226,5 +177,59 @@ extension ViewController: UITextViewDelegate {
         showPlaceholder()
         textView.layer.borderColor = UIColor.systemGray4.cgColor
         textView.layer.borderWidth = 0.5
+    }
+}
+
+// MARK: - UI Helpers
+
+private extension ViewController {
+
+    func updateNavigationTitle() {
+        navigationItem.title = switchPushMode ? "모달" : "내비게이션"
+    }
+
+    func applyFadeAnimationToNavigationBar() {
+        fadeTextAnimation.duration = 0.3
+        fadeTextAnimation.type = .fade
+        navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
+    }
+
+    func showPlaceholder() {
+        if contentTextView.text.isEmpty {
+            contentTextView.text = placeholderText
+            contentTextView.textColor = UIColor.systemGray3
+        }
+    }
+
+    func removePlaceholder() {
+        if contentTextView.text == placeholderText {
+            contentTextView.text = nil
+            contentTextView.textColor = UIColor.label
+        }
+    }
+
+    func configureToolbar() {
+        let toolbar = KeyboardToolbarHelper.createToolbar(
+            target: self,
+            previousSelector: #selector(previousField),
+            nextSelector: #selector(nextField),
+            dismissSelector: #selector(dismissKeyboard)
+        )
+
+        titleTextField.inputAccessoryView = toolbar
+        contentTextView.inputAccessoryView = toolbar
+    }
+
+    func showAlertView() {
+        let alertController = UIAlertController(
+            title: "빈값이 있습니다.",
+            message: "필드를 모두 채워주세요.",
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true)
     }
 }
