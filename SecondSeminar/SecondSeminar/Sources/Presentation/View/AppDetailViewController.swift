@@ -66,7 +66,7 @@ final class AppDetailViewController: BaseViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    @objc private func writeReviewButtonTapped() {
+    @objc private func navigateToWriteReviewVC() {
         let vc = WriteReviewViewController()
         vc.feedbackDelegate = self
         let nav = UINavigationController(rootViewController: vc)
@@ -94,7 +94,7 @@ final class AppDetailViewController: BaseViewController {
 
         appFeedbackSectionView.writeReviewButton.addTarget(
             self,
-            action: #selector(writeReviewButtonTapped),
+            action: #selector(navigateToWriteReviewVC),
             for: .touchUpInside
         )
     }
