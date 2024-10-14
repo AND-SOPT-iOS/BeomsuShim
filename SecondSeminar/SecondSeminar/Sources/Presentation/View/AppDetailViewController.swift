@@ -73,6 +73,12 @@ final class AppDetailViewController: BaseViewController {
         present(nav, animated: true)
     }
 
+    @objc private func navigateToAppSupportVC() {
+        if let url = URL(string: "https://toss.im") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+
     private func setAddTargets() {
         whatsNewSectionView.whatsNewButton.addTarget(
             self,
@@ -95,6 +101,12 @@ final class AppDetailViewController: BaseViewController {
         appFeedbackSectionView.writeReviewButton.addTarget(
             self,
             action: #selector(navigateToWriteReviewVC),
+            for: .touchUpInside
+        )
+
+        appFeedbackSectionView.appSupportButton.addTarget(
+            self,
+            action: #selector(navigateToAppSupportVC),
             for: .touchUpInside
         )
     }
