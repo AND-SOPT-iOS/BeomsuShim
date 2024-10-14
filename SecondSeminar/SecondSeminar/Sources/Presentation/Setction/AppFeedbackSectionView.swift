@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AppFeedbackSectionDelegate: AnyObject {
+protocol SubmissionDelegate: AnyObject {
 
     func displaySubmissionAlert(_ alertView: UIView)
 }
@@ -16,7 +16,7 @@ final class AppFeedbackSectionView: BaseView {
 
     // MARK: - Properties
 
-    weak var delegate: AppFeedbackSectionDelegate?
+    weak var delegate: SubmissionDelegate?
 
     private let ratingAndReviewButton = UIButton(type: .system)
     private let secondRatingLabel = UILabel()

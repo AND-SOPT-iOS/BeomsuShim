@@ -249,7 +249,7 @@ extension AppDetailViewController: UIScrollViewDelegate {
 
 // MARK: - AppFeedbackSectionDelegate
 
-extension AppDetailViewController: AppFeedbackSectionDelegate {
+extension AppDetailViewController: SubmissionDelegate {
 
     func displaySubmissionAlert(_ alertView: UIView) {
         view.addSubview(alertView)
