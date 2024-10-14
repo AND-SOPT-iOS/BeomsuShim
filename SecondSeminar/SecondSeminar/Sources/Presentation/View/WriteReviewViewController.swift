@@ -69,6 +69,12 @@ final class WriteReviewViewController: BaseViewController {
 
     @objc private func nicknameButtonTapped() {
         let vc = EditNicknameViewController()
+        vc.delegate = self
+
+        if let currentNickname = nicknameButton.titleLabel?.text?.replacingOccurrences(of: "별명: ", with: "") {
+            vc.bindNickname(currentNickname)
+        }
+
         navigationController?.pushViewController(vc, animated: true)
         navigationItem.title = "뒤로"
     }
@@ -354,6 +360,25 @@ extension WriteReviewViewController: UITextViewDelegate {
             textView.textColor = .systemGray2
             textView.font = .systemFont(ofSize: 17, weight: .medium)
         }
+    }
+}
+
+// MARK: - EditNicknameViewControllerDelegate
+
+extension WriteReviewViewController: EditNicknameViewControllerDelegate {
+
+    func didUpdateNickname(_ nickname: String) {
+        var config = nicknameButton.configuration
+        config?.attributedTitle = AttributedString(
+            NSAttributedString(
+                string: "별명: \(nickname)",
+                attributes: [
+                    .font: UIFont.systemFont(ofSize: 15, weight: .regular)
+                ]
+            )
+        )
+
+        nicknameButton.configuration = config
     }
 }
 

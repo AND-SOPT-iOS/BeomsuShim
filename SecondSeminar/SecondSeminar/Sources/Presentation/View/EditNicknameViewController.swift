@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol EditNicknameViewControllerDelegate: AnyObject {
+
+    func didUpdateNickname(_ nickname: String)
+}
+
 final class EditNicknameViewController: BaseViewController {
 
     // MARK: - Properties
+
+    weak var delegate: EditNicknameViewControllerDelegate?
 
     private var updateButton = UIButton(type: .system)
     private let nicknameTitleLabel = UILabel()
@@ -29,6 +36,9 @@ final class EditNicknameViewController: BaseViewController {
     // MARK: - Actions
 
     @objc private func updateButtonTapped() {
+        guard let nickname = nicknameTextField.text, !nickname.isEmpty else { return }
+
+        delegate?.didUpdateNickname(nickname)
         navigationController?.popViewController(animated: true)
     }
 
@@ -48,6 +58,12 @@ final class EditNicknameViewController: BaseViewController {
         )
     }
 
+    // MARK: - Bindings
+
+    func bindNickname(_ nickname: String) {
+        nicknameTextField.text = nickname
+    }
+
     // MARK: - UI
 
     private func setNavigationBarStyle() {
@@ -58,7 +74,7 @@ final class EditNicknameViewController: BaseViewController {
         }
 
         let updateBarButtonItem = UIBarButtonItem(customView: updateButton)
-        updateBarButtonItem.isEnabled = false
+        updateBarButtonItem.isEnabled = true
 
         navigationItem.rightBarButtonItem = updateBarButtonItem
     }
