@@ -246,9 +246,24 @@ final class AppDetailViewController: BaseViewController {
 extension AppDetailViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let navigationBar = navigationController?.navigationBar else { return }
-
         let offsetY = scrollView.contentOffset.y
+        let rightBarButtonItem = createInstallButtonBarItem()
+
+        if offsetY > 50 {
+            if navigationItem.titleView == nil {
+                updateNavigationBar(
+                    with: tossIcon,
+                    rightBarButtonItem: rightBarButtonItem
+                )
+            }
+        } else {
+            if navigationItem.titleView != nil {
+                resetNavigationBar()
+            }
+        }
+    }
+
+    private func createInstallButtonBarItem() -> UIBarButtonItem {
         let installButton = UIButton(type: .system)
         installButton.backgroundColor = .systemBlue
         installButton.setAttributedTitle(
@@ -264,33 +279,29 @@ extension AppDetailViewController: UIScrollViewDelegate {
         installButton.clipsToBounds = true
         installButton.layer.cornerRadius = 15
         installButton.frame = CGRect(x: 0, y: 0, width: 70, height: 30)
-        let rightBarButtonItem = UIBarButtonItem(customView: installButton)
+        return UIBarButtonItem(customView: installButton)
+    }
 
-        if offsetY > 50 {
-            if navigationItem.titleView == nil {
-                UIView.transition(
-                    with: navigationBar,
-                    duration: 0.3,
-                    options: .transitionCrossDissolve,
-                    animations: {
-                        self.navigationItem.titleView = self.tossIcon
-                        self.navigationItem.rightBarButtonItem = rightBarButtonItem
-                    },
-                    completion: nil)
-            }
-        } else {
-            if navigationItem.titleView != nil {
-                UIView.transition(
-                    with: navigationBar,
-                    duration: 0.3,
-                    options: .transitionCrossDissolve,
-                    animations: {
-                        self.navigationItem.titleView = nil
-                        self.navigationItem.rightBarButtonItem = nil
-                    },
-                    completion: nil)
-            }
-        }
+    private func updateNavigationBar(
+        with titleView: UIView?,
+        rightBarButtonItem: UIBarButtonItem?
+    ) {
+        guard let navigationBar = navigationController?.navigationBar else { return }
+
+        UIView.transition(
+            with: navigationBar,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: {
+                self.navigationItem.titleView = titleView
+                self.navigationItem.rightBarButtonItem = rightBarButtonItem
+            },
+            completion: nil
+        )
+    }
+
+    private func resetNavigationBar() {
+        updateNavigationBar(with: nil, rightBarButtonItem: nil)
     }
 }
 
