@@ -65,6 +65,12 @@ final class WriteReviewViewController: BaseViewController {
         configureRatingStarButtons()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setNavigationBarStyle()
+    }
+
     // MARK: - Actions
 
     @objc private func cancelButtonTapped() {
