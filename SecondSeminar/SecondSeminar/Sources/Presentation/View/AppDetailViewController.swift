@@ -137,7 +137,7 @@ final class AppDetailViewController: BaseViewController {
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 5
             $0.layer.borderWidth = 0.5
-            $0.layer.borderColor = UIColor.systemGray4.cgColor
+            $0.layer.borderColor = UIColor.systemGray6.cgColor
         }
 
         firstHorizontalDividerView.do {
