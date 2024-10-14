@@ -46,6 +46,7 @@ final class WriteReviewViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setAddTargets()
         setDelegates()
         configureRatingStarButtons()
     }
@@ -55,6 +56,20 @@ final class WriteReviewViewController: BaseViewController {
     @objc private func starTapped(_ sender: UIButton) {
         currentRating = sender.tag + 1
         updateStarImages()
+    }
+
+    @objc private func nicknameButtonTapped() {
+        let vc = EditNicknameViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        navigationItem.title = "뒤로"
+    }
+
+    private func setAddTargets() {
+        nicknameButton.addTarget(
+            self,
+            action: #selector(nicknameButtonTapped),
+            for: .touchUpInside
+        )
     }
 
     // MARK: - Helpers
