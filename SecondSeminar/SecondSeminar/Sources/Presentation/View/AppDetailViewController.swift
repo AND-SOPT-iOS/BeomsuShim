@@ -37,7 +37,20 @@ final class AppDetailViewController: BaseViewController {
         setNavigationBarStyle()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setNavigationBarStyle()
+    }
+
     // MARK: - Actions
+
+    @objc private func navigateToVersionHistoryVC() {
+        let vc = VersionHistoryViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        navigationItem.title = "뒤로"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
     @objc private func navigateToDeveloperAppVC() {
         let vc = DeveloperAppViewController()
@@ -61,6 +74,12 @@ final class AppDetailViewController: BaseViewController {
     }
 
     private func setAddTargets() {
+        whatsNewSectionView.whatsNewButton.addTarget(
+            self,
+            action: #selector(navigateToVersionHistoryVC),
+            for: .touchUpInside
+        )
+
         developerInfoSectionView.developerNameButton.button.addTarget(
             self,
             action: #selector(navigateToDeveloperAppVC),
@@ -91,6 +110,8 @@ final class AppDetailViewController: BaseViewController {
 
     private func setNavigationBarStyle() {
         navigationItem.titleView = nil
+        navigationItem.title = ""
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 
     override func setStyle() {

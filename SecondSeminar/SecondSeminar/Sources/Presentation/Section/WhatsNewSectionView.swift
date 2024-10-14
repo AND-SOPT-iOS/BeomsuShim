@@ -11,7 +11,7 @@ final class WhatsNewSectionView: BaseView {
 
     // MARK: - Properties
 
-    private let whatsNewButton = UIButton(type: .system)
+    let whatsNewButton = UIButton(type: .system)
     private let versionLabel = UILabel()
     private let updatedTimeLabel = UILabel()
     private let updatedDescriptionLabel = UILabel()
