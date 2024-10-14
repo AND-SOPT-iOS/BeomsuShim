@@ -138,9 +138,9 @@ final class AppDetailViewController: BaseViewController {
             $0.layer.borderColor = UIColor.systemGray6.cgColor
         }
 
-        firstHorizontalDividerView.do {
-            $0.backgroundColor = .systemGray2
-        }
+        firstHorizontalDividerView.do { $0.configureDivider() }
+        secondHorizontalDividerView.do { $0.configureDivider() }
+        thirdHorizontalDividerView.do { $0.configureDivider() }
 
         secondHorizontalDividerView.do {
             $0.backgroundColor = .systemGray2

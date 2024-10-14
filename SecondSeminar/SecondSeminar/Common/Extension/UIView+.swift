@@ -12,4 +12,8 @@ extension UIView {
     func addSubviews(_ views: UIView...) {
         views.forEach { addSubview($0) }
     }
+
+    func configureDivider() {
+        backgroundColor = .systemGray2
+    }
 }
