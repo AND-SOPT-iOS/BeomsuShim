@@ -12,7 +12,7 @@ final class DeveloperInfoSectionView: BaseView {
     // MARK: - Properties
 
     private let descriptionLabel = UILabel()
-    private let developerNameButton = DeveloperNameButton()
+    let developerNameButton = DeveloperNameButton()
 
     // MARK: - UI
 

@@ -18,7 +18,7 @@ final class DeveloperNameButton: UIView {
     private let subtitleLabel = UILabel()
     private let titleStackView = UIStackView()
     private let arrowImageView = UIImageView()
-    private let button = UIButton(type: .system)
+    let button = UIButton(type: .system)
 
     // MARK: - Initializer
 
@@ -28,7 +28,6 @@ final class DeveloperNameButton: UIView {
         setStyle()
         setUI()
         setLayout()
-        setActions()
     }
 
     required init?(coder: NSCoder) {
@@ -93,15 +92,5 @@ final class DeveloperNameButton: UIView {
         button.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-
-    // MARK: - Actions
-
-    private func setActions() {
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-    }
-
-    @objc private func buttonTapped() {
-        print("Button tapped!")
     }
 }

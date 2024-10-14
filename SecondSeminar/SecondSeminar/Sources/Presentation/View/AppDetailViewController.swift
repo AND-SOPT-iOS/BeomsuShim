@@ -39,6 +39,13 @@ final class AppDetailViewController: BaseViewController {
 
     // MARK: - Actions
 
+    @objc private func navigateToDeveloperAppVC() {
+        let vc = DeveloperAppViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        navigationItem.title = "뒤로"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
     @objc private func navigateToSeeAllReviewVC() {
         let vc = SeeAllReviewViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -54,6 +61,12 @@ final class AppDetailViewController: BaseViewController {
     }
 
     private func setAddTargets() {
+        developerInfoSectionView.developerNameButton.button.addTarget(
+            self,
+            action: #selector(navigateToDeveloperAppVC),
+            for: .touchUpInside
+        )
+
         appFeedbackSectionView.ratingAndReviewButton.addTarget(
             self,
             action: #selector(navigateToSeeAllReviewVC),
