@@ -64,7 +64,7 @@ final class AppDetailViewController: BaseViewController {
         present(nav, animated: true)
     }
 
-    @objc private func navigateToAppSupportVC() {
+    @objc private func openAppSupportWebsite() {
         if let url = URL(string: "https://toss.im") {
             UIApplication.shared.open(url, options: [:])
         }
@@ -97,7 +97,7 @@ final class AppDetailViewController: BaseViewController {
 
         appFeedbackSectionView.appSupportButton.addTarget(
             self,
-            action: #selector(navigateToAppSupportVC),
+            action: #selector(openAppSupportWebsite),
             for: .touchUpInside
         )
     }
