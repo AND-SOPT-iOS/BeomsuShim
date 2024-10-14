@@ -96,7 +96,7 @@ final class EditNicknameViewController: BaseViewController {
 
         nicknameTextField.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.left.equalTo(nicknameTitleLabel.snp.right).offset(30)
+            $0.left.equalTo(nicknameTitleLabel.snp.right).offset(25)
             $0.right.equalTo(-20)
             $0.height.equalTo(40)
         }
