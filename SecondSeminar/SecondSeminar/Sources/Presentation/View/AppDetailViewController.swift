@@ -39,6 +39,13 @@ final class AppDetailViewController: BaseViewController {
 
     // MARK: - Actions
 
+    @objc private func navigateToSeeAllReviewVC() {
+        let vc = SeeAllReviewViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        navigationItem.title = "뒤로"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
     @objc private func writeReviewButtonTapped() {
         let vc = WriteReviewViewController()
         vc.feedbackDelegate = self
@@ -47,6 +54,12 @@ final class AppDetailViewController: BaseViewController {
     }
 
     private func setAddTargets() {
+        appFeedbackSectionView.ratingAndReviewButton.addTarget(
+            self,
+            action: #selector(navigateToSeeAllReviewVC),
+            for: .touchUpInside
+        )
+
         appFeedbackSectionView.writeReviewButton.addTarget(
             self,
             action: #selector(writeReviewButtonTapped),

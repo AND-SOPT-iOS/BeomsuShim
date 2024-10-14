@@ -18,7 +18,7 @@ final class AppFeedbackSectionView: BaseView {
 
     weak var delegate: SubmissionDelegate?
 
-    private let ratingAndReviewButton = UIButton(type: .system)
+    let ratingAndReviewButton = UIButton(type: .system)
     private let secondRatingLabel = UILabel()
     private let secondRatingStarLabel = UILabel()
     private let secondReviewCountLabel = UILabel()
