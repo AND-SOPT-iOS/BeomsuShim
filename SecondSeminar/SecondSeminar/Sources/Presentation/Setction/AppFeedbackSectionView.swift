@@ -25,19 +25,19 @@ final class AppFeedbackSectionView: BaseView {
 
     private let mostHelpfulTitleLabel = UILabel()
     private let reviewContentView = UIView()
-    private let reviewTitleLabel = UILabel()
-    private let reviewRatingStarLabel = UILabel()
-    private let reviewedDateLabel = UILabel()
-    private let reviewerNameLabel = UILabel()
+    let reviewTitleLabel = UILabel()
+    let reviewRatingStarLabel = UILabel()
+    let reviewedDateLabel = UILabel()
+    let reviewerNameLabel = UILabel()
     private let reviewSubtitleStackView = UIStackView()
-    private let reviewContentLabel = UILabel()
+    let reviewContentLabel = UILabel()
 
     private let tapToRateTitleLabel = UILabel()
     private var tapToRateButton = [UIButton(type: .system)]
     private let starsStackView = UIStackView()
     private let emptyStarImage = UIImage(systemName: "star")
     private let filledStarImage = UIImage(systemName: "star.fill")
-    private let starCount = 5
+    let starCount = 5
     private var currentRating = 0
 
     let writeReviewButton = UIButton(type: .system)

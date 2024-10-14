@@ -7,9 +7,22 @@
 
 import UIKit
 
+protocol FeedbackDelegate: AnyObject {
+
+    func updateFeedbackSection(
+        title: String,
+        rating: Int,
+        date: String,
+        nickname: String,
+        review: String
+    )
+}
+
 final class WriteReviewViewController: BaseViewController {
 
     // MARK: - Properties
+
+    weak var feedbackDelegate: FeedbackDelegate?
 
     private let iconImageView = UIImageView()
     private let titleLabel = UILabel()
@@ -59,6 +72,24 @@ final class WriteReviewViewController: BaseViewController {
     }
 
     @objc private func submitButtonTapped() {
+        let rating = currentRating - 1
+        let title = reviewTitleTextView.text
+        let review = reviewContentTextView.text
+        let nickname = nicknameButton.titleLabel?.text?.replacingOccurrences(of: "별명: ", with: "")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM월 dd일"
+        let todayDate = dateFormatter.string(from: Date())
+
+        guard let title, let nickname, let review else { return }
+
+        feedbackDelegate?.updateFeedbackSection(
+            title: title,
+            rating: rating,
+            date: todayDate,
+            nickname: nickname,
+            review: review
+        )
+
         dismiss(animated: true)
     }
 

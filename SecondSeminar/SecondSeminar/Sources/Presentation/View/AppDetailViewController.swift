@@ -41,6 +41,7 @@ final class AppDetailViewController: BaseViewController {
 
     @objc private func writeReviewButtonTapped() {
         let vc = WriteReviewViewController()
+        vc.feedbackDelegate = self
         let nav = UINavigationController(rootViewController: vc)
         present(nav, animated: true)
     }
@@ -257,5 +258,30 @@ extension AppDetailViewController: SubmissionDelegate {
         alertView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+    }
+}
+
+// MARK: - FeedbackDelegate
+
+extension AppDetailViewController: FeedbackDelegate {
+
+    func updateFeedbackSection(
+        title: String,
+        rating: Int,
+        date: String,
+        nickname: String,
+        review: String
+    ) {
+        appFeedbackSectionView.reviewTitleLabel.text = title
+        appFeedbackSectionView.reviewRatingStarLabel.text = String(
+            repeating: "★",
+            count: rating
+        ) + String(
+            repeating: "☆",
+            count: appFeedbackSectionView.starCount - rating
+        )
+        appFeedbackSectionView.reviewedDateLabel.text = date
+        appFeedbackSectionView.reviewerNameLabel.text = "• \(nickname)"
+        appFeedbackSectionView.reviewContentLabel.text = review
     }
 }
