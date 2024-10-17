@@ -117,23 +117,16 @@ final class AppFeedbackSectionView: BaseView {
 
     override func setStyle() {
         ratingAndReviewButton.do {
-            var config = UIButton.Configuration.plain()
-            config.image = UIImage(systemName: "chevron.right")?
-                .withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 12, weight: .heavy))
-            config.contentInsets = .zero
-            config.baseForegroundColor = .label
-            config.imagePlacement = .trailing
-            config.imagePadding = 5
-            config.attributedTitle = AttributedString(
-                NSAttributedString(
-                    string: "평가 및 리뷰",
-                    attributes: [
-                        .font: UIFont.systemFont(ofSize: 20, weight: .bold)
-                    ]
-                )
+            $0.configureButton(
+                title: "평가 및 리뷰",
+                fontSize: 20,
+                fontWeight: .bold,
+                imageName: "chevron.right",
+                tintColor: .systemGray,
+                pointSize: 12,
+                imageWeight: .heavy,
+                imagePlacement: .trailing
             )
-            $0.configuration = config
         }
 
         secondRatingLabel.do { $0.configureLabel("4.0", size: 70, weight: .heavy) }
@@ -227,38 +220,32 @@ final class AppFeedbackSectionView: BaseView {
         }
 
         writeReviewButton.do {
-            var config = UIButton.Configuration.plain()
-            config.baseForegroundColor = .systemBlue
-            config.image = UIImage(systemName: "square.and.pencil")?
-                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 10, weight: .medium))
-            config.imagePadding = 5
-            config.attributedTitle = AttributedString(
-                NSAttributedString(
-                    string: "리뷰 작성",
-                    attributes: [.font: UIFont.systemFont(ofSize: 15, weight: .medium)]
-                )
+            $0.configureButton(
+                title: "리뷰 작성",
+                fontSize: 15,
+                fontWeight: .medium,
+                foregroundColor: .systemBlue,
+                imageName: "square.and.pencil",
+                pointSize: 10,
+                imageWeight: .medium
             )
 
-            $0.configuration = config
             $0.backgroundColor = .tertiarySystemGroupedBackground
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 15
         }
 
         appSupportButton.do {
-            var config = UIButton.Configuration.plain()
-            config.baseForegroundColor = .systemBlue
-            config.image = UIImage(systemName: "questionmark.circle")?
-                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 10, weight: .medium))
-            config.imagePadding = 5
-            config.attributedTitle = AttributedString(
-                NSAttributedString(
-                    string: "앱 지원",
-                    attributes: [.font: UIFont.systemFont(ofSize: 15, weight: .medium)]
-                )
+            $0.configureButton(
+                title: "앱 지원",
+                fontSize: 15,
+                fontWeight: .medium,
+                foregroundColor: .systemBlue,
+                imageName: "questionmark.circle",
+                pointSize: 10,
+                imageWeight: .medium
             )
 
-            $0.configuration = config
             $0.backgroundColor = .tertiarySystemGroupedBackground
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 15

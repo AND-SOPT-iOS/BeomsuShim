@@ -266,24 +266,18 @@ final class WriteReviewViewController: BaseViewController {
         }
 
         nicknameButton.do {
-            var config = UIButton.Configuration.plain()
-            config.attributedTitle = AttributedString(
-                NSAttributedString(
-                    string: "별명: 심범수",
-                    attributes: [
-                        .font: UIFont.systemFont(ofSize: 15, weight: .regular)
-                    ]
-                )
+            $0.configureButton(
+                title: "별명: 심범수",
+                fontSize: 15,
+                fontWeight: .regular,
+                foregroundColor: .systemGray,
+                imageName: "chevron.right",
+                tintColor: .systemGray,
+                pointSize: 12,
+                imageWeight: .regular,
+                imagePlacement: .trailing,
+                imagePadding: 3
             )
-            config.baseForegroundColor = .systemGray
-            config.image = UIImage(systemName: "chevron.right")?
-                .withConfiguration(
-                    UIImage.SymbolConfiguration(pointSize: 12, weight: .regular)
-                )
-            config.imagePlacement = .trailing
-            config.imagePadding = 3
-
-            $0.configuration = config
         }
     }
 

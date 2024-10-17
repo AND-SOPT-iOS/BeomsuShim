@@ -20,23 +20,16 @@ final class WhatsNewSectionView: BaseView {
 
     override func setStyle() {
         whatsNewButton.do {
-            var config = UIButton.Configuration.plain()
-            config.image = UIImage(systemName: "chevron.right")?
-                .withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 12, weight: .heavy))
-            config.contentInsets = .zero
-            config.baseForegroundColor = .label
-            config.imagePlacement = .trailing
-            config.imagePadding = 5
-            config.attributedTitle = AttributedString(
-                NSAttributedString(
-                    string: "새로운 소식",
-                    attributes: [
-                        .font: UIFont.systemFont(ofSize: 20, weight: .bold)
-                    ]
-                )
+            $0.configureButton(
+                title: "새로운 소식",
+                fontSize: 20,
+                fontWeight: .bold,
+                imageName: "chevron.right",
+                tintColor: .systemGray,
+                pointSize: 12,
+                imageWeight: .heavy,
+                imagePlacement: .trailing
             )
-            $0.configuration = config
         }
 
         versionLabel.do {
