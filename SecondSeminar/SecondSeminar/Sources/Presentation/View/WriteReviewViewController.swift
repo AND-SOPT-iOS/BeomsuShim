@@ -192,9 +192,7 @@ final class WriteReviewViewController: BaseViewController {
             $0.spacing = 5
         }
 
-        dividerView.do {
-            $0.backgroundColor = .systemGray2
-        }
+        dividerView.do { $0.configureDivider() }
 
         tapToRateTitleLabel.do {
             $0.text = "탭하여 평가하기:"
@@ -227,9 +225,7 @@ final class WriteReviewViewController: BaseViewController {
 
         reviewTitleTextView.do { $0.configureWriteReviewTextView() }
 
-        textViewDividerView.do {
-            $0.backgroundColor = .systemGray2
-        }
+        textViewDividerView.do { $0.configureDivider() }
 
         reviewContentTitleLabel.do {
             $0.text = "리뷰"
