@@ -458,7 +458,7 @@ private extension AppFeedbackSectionView {
             button.do {
                 $0.tag = i + 1
                 $0.setImage(emptyStarImage?
-                    .withConfiguration(UIImage.SymbolConfiguration(weight: .bold)), for: .normal)
+                    .withConfiguration(UIImage.SymbolConfiguration(weight: .semibold)), for: .normal)
                 $0.addTarget(self, action: #selector(starTapped), for: .touchUpInside)
                 tapToRateButton.append(button)
                 starsStackView.addArrangedSubview(button)
