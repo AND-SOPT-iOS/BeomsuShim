@@ -27,6 +27,8 @@ final class AppDetailViewController: BaseViewController {
     private let secondHorizontalDividerView = UIView()
     private let thirdHorizontalDividerView = UIView()
 
+    private var isExpanded = false
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -47,6 +49,12 @@ final class AppDetailViewController: BaseViewController {
 
     @objc private func navigateToVersionHistoryVC() {
         navigateTo(VersionHistoryViewController())
+    }
+
+    @objc private func toggleDescription() {
+        isExpanded.toggle()
+        whatsNewSectionView.updatedDescriptionLabel.numberOfLines = isExpanded ? 0 : 1
+        whatsNewSectionView.seeMoreButton.setTitle(isExpanded ? "접기" : "더보기", for: .normal)
     }
 
     @objc private func navigateToDeveloperAppVC() {
@@ -76,6 +84,12 @@ final class AppDetailViewController: BaseViewController {
         whatsNewSectionView.whatsNewButton.addTarget(
             self,
             action: #selector(navigateToVersionHistoryVC),
+            for: .touchUpInside
+        )
+
+        whatsNewSectionView.seeMoreButton.addTarget(
+            self,
+            action: #selector(toggleDescription),
             for: .touchUpInside
         )
 

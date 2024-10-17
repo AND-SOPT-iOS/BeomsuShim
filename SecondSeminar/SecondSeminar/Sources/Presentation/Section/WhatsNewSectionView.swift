@@ -14,7 +14,8 @@ final class WhatsNewSectionView: BaseView {
     let whatsNewButton = UIButton(type: .system)
     private let versionLabel = UILabel()
     private let updatedTimeLabel = UILabel()
-    private let updatedDescriptionLabel = UILabel()
+    let updatedDescriptionLabel = UILabel()
+    let seeMoreButton = UIButton(type: .system)
 
     // MARK: - UI
 
@@ -62,8 +63,15 @@ final class WhatsNewSectionView: BaseView {
             )
 
             $0.attributedText = attributedString
+            $0.lineBreakMode = .byTruncatingTail
             $0.textAlignment = .left
-            $0.numberOfLines = 0
+            $0.numberOfLines = 1
+        }
+
+        seeMoreButton.do {
+            $0.setTitle("더보기", for: .normal)
+            $0.setTitleColor(.systemBlue, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
         }
     }
 
@@ -72,7 +80,8 @@ final class WhatsNewSectionView: BaseView {
             whatsNewButton,
             versionLabel,
             updatedTimeLabel,
-            updatedDescriptionLabel
+            updatedDescriptionLabel,
+            seeMoreButton
         )
     }
 
@@ -93,8 +102,14 @@ final class WhatsNewSectionView: BaseView {
         }
 
         updatedDescriptionLabel.snp.makeConstraints {
-            $0.centerX.left.bottom.equalToSuperview()
+            $0.centerX.left.equalToSuperview()
             $0.top.equalTo(versionLabel.snp.bottom).offset(15)
+        }
+
+        seeMoreButton.snp.makeConstraints {
+            $0.top.equalTo(updatedDescriptionLabel.snp.bottom).offset(5)
+            $0.bottom.equalToSuperview()
+            $0.right.equalTo(updatedDescriptionLabel.snp.right)
         }
     }
 }
