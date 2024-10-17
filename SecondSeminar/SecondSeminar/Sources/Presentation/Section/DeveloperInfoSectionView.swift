@@ -18,21 +18,7 @@ final class DeveloperInfoSectionView: BaseView {
 
     override func setStyle() {
         descriptionLabel.do {
-            let text = "토스뱅크, 토스증권은 SOPT 같은 인재들을 찾습니다."
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 4
-
-            let attributedString = NSAttributedString(
-                string: text,
-                attributes: [
-                    .paragraphStyle: paragraphStyle,
-                    .font: UIFont.systemFont(ofSize: 14, weight: .regular)
-                ]
-            )
-
-            $0.attributedText = attributedString
-            $0.textAlignment = .left
-            $0.numberOfLines = 0
+            $0.applyParagraphStyle(text: "토스뱅크, 토스증권은 SOPT 같은 인재들을 찾습니다.")
         }
     }
 

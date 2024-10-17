@@ -23,4 +23,26 @@ extension UILabel {
         font = .systemFont(ofSize: size, weight: weight)
         self.numberOfLines = numberOfLines ?? 1
     }
+
+    func applyParagraphStyle(
+        text: String,
+        lineBreakMode: NSLineBreakMode? = .byTruncatingTail,
+        numberOfLines: Int? = 0
+    ) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 4
+
+        let attributedString = NSAttributedString(
+            string: text,
+            attributes: [
+                .paragraphStyle: paragraphStyle,
+                .font: UIFont.systemFont(ofSize: 14, weight: .regular)
+            ]
+        )
+
+        self.attributedText = attributedString
+        self.lineBreakMode = .byTruncatingTail
+        self.textAlignment = .left
+        self.numberOfLines = numberOfLines ?? 0
+    }
 }
