@@ -225,17 +225,7 @@ final class WriteReviewViewController: BaseViewController {
             $0.font = .systemFont(ofSize: 17, weight: .medium)
         }
 
-        reviewTitleTextView.do {
-            $0.text = placeholderText
-            $0.textColor = .systemGray2
-            $0.backgroundColor = .clear
-            $0.font = .systemFont(ofSize: 17, weight: .medium)
-            $0.isScrollEnabled = false
-            $0.textContainerInset = .zero
-            $0.autocorrectionType = .no
-            $0.autocapitalizationType = .none
-            $0.spellCheckingType = .no
-        }
+        reviewTitleTextView.do { $0.configureWriteReviewTextView() }
 
         textViewDividerView.do {
             $0.backgroundColor = .systemGray2
@@ -247,17 +237,7 @@ final class WriteReviewViewController: BaseViewController {
             $0.font = .systemFont(ofSize: 17, weight: .medium)
         }
 
-        reviewContentTextView.do {
-            $0.text = placeholderText
-            $0.textColor = .systemGray2
-            $0.backgroundColor = .clear
-            $0.font = .systemFont(ofSize: 17, weight: .medium)
-            $0.isScrollEnabled = false
-            $0.textContainerInset = .zero
-            $0.autocorrectionType = .no
-            $0.autocapitalizationType = .none
-            $0.spellCheckingType = .no
-        }
+        reviewContentTextView.do { $0.configureWriteReviewTextView() }
 
         reviewTextInputView.do {
             $0.backgroundColor = .tertiarySystemGroupedBackground
