@@ -40,17 +40,17 @@ final class WhatsNewSectionView: BaseView {
         }
 
         versionLabel.do {
-            $0.text = "버전 5.184.0"
-            $0.textColor = .systemGray
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 14, weight: .medium)
+            $0.configureLabel("버전 5.184.0", color: .systemGray, size: 14, weight: .medium)
         }
 
         updatedTimeLabel.do {
-            $0.text = "2일 전"
-            $0.textColor = .systemGray
-            $0.textAlignment = .right
-            $0.font = .systemFont(ofSize: 14, weight: .medium)
+            $0.configureLabel(
+                "2일 전",
+                color: .systemGray,
+                alignment: .right,
+                size: 14,
+                weight: .medium
+            )
         }
 
         updatedDescriptionLabel.do {

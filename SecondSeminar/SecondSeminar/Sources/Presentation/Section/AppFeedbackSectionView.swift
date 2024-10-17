@@ -29,7 +29,7 @@ final class AppFeedbackSectionView: BaseView {
     let reviewRatingStarLabel = UILabel()
     let reviewedDateLabel = UILabel()
     let reviewerNameLabel = UILabel()
-    private let reviewSubtitleStackView = UIStackView()
+    private let reviewInfoStackView = UIStackView()
     let reviewContentLabel = UILabel()
 
     private let tapToRateTitleLabel = UILabel()
@@ -136,29 +136,24 @@ final class AppFeedbackSectionView: BaseView {
             $0.configuration = config
         }
 
-        secondRatingLabel.do {
-            $0.text = "4.0"
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 70, weight: .semibold)
-        }
+        secondRatingLabel.do { $0.configureLabel("4.0", size: 70, weight: .heavy) }
 
         secondRatingStarLabel.do {
-            $0.text = "★ ★ ★ ★ ☆"
-            $0.textAlignment = .right
-            $0.font = .systemFont(ofSize: 20, weight: .bold)
+            $0.configureLabel("★ ★ ★ ★ ☆", alignment: .right, size: 20, weight: .bold)
         }
 
         secondReviewCountLabel.do {
-            $0.text = "8.4만개의 평가"
-            $0.textColor = .systemGray
-            $0.textAlignment = .right
-            $0.font = .systemFont(ofSize: 15, weight: .bold)
+            $0.configureLabel(
+                "8.4만개의 평가",
+                color: .systemGray,
+                alignment: .right,
+                size: 15,
+                weight: .bold
+            )
         }
 
         mostHelpfulTitleLabel.do {
-            $0.text = "가장 도움이 되는 리뷰"
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 15, weight: .semibold)
+            $0.configureLabel("가장 도움이 되는 리뷰", size: 15, weight: .semibold)
         }
 
         reviewContentView.do {
@@ -171,33 +166,32 @@ final class AppFeedbackSectionView: BaseView {
             $0.layer.shadowRadius = 5
         }
 
-        reviewTitleLabel.do {
-            $0.text = "앤솝 iOS YB 35기"
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 15, weight: .medium)
-        }
+        reviewTitleLabel.do { $0.configureLabel("앤솝 iOS YB 35기", size: 15, weight: .medium) }
 
         reviewRatingStarLabel.do {
-            $0.text = "★ ★ ★ ★ ★"
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 15, weight: .medium)
+            $0.configureLabel(
+                "★ ★ ★ ★ ★",
+                alignment: .left,
+                size: 15,
+                weight: .medium,
+                numberOfLines: 1
+            )
         }
 
         reviewedDateLabel.do {
-            $0.text = "10월 13일"
-            $0.textColor = .systemGray
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 15, weight: .medium)
+            $0.configureLabel(
+                "10월 13일",
+                color: .systemGray,
+                size: 15,
+                weight: .medium
+            )
         }
 
         reviewerNameLabel.do {
-            $0.text = "• INTJ"
-            $0.textColor = .systemGray
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 15, weight: .medium)
+            $0.configureLabel("• INTJ", color: .systemGray, size: 15, weight: .medium)
         }
 
-        reviewSubtitleStackView.do {
+        reviewInfoStackView.do {
             $0.addArrangedSubview(reviewRatingStarLabel)
             $0.addArrangedSubview(reviewedDateLabel)
             $0.addArrangedSubview(reviewerNameLabel)
@@ -208,19 +202,21 @@ final class AppFeedbackSectionView: BaseView {
         }
 
         reviewContentLabel.do {
-            $0.text = """
-            동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-            """
-            $0.textColor = .systemGray
-            $0.textAlignment = .left
-            $0.numberOfLines = 0
-            $0.font = .systemFont(ofSize: 15, weight: .medium)
+            $0.configureLabel(
+                "동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세",
+                color: .systemGray,
+                size: 15,
+                weight: .medium
+            )
         }
 
         tapToRateTitleLabel.do {
-            $0.text = "탭하여 평가하기"
-            $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 15, weight: .semibold)
+            $0.configureLabel(
+                "탭하여 평가하기",
+                alignment: .center,
+                size: 15,
+                weight: .semibold
+            )
         }
 
         starsStackView.do {
@@ -287,7 +283,7 @@ final class AppFeedbackSectionView: BaseView {
             mostHelpfulTitleLabel,
             reviewContentView,
             reviewTitleLabel,
-            reviewSubtitleStackView,
+            reviewInfoStackView,
             reviewContentLabel,
             tapToRateTitleLabel,
             starsStackView,
@@ -296,7 +292,7 @@ final class AppFeedbackSectionView: BaseView {
 
         reviewContentView.addSubviews(
             reviewTitleLabel,
-            reviewSubtitleStackView,
+            reviewInfoStackView,
             reviewContentLabel
         )
     }
@@ -339,15 +335,15 @@ final class AppFeedbackSectionView: BaseView {
             $0.top.left.equalTo(20)
         }
 
-        reviewSubtitleStackView.snp.makeConstraints {
+        reviewInfoStackView.snp.makeConstraints {
             $0.top.equalTo(reviewTitleLabel.snp.bottom).offset(10)
             $0.left.equalTo(reviewTitleLabel)
         }
 
         reviewContentLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(reviewSubtitleStackView.snp.bottom).offset(5)
-            $0.left.equalTo(reviewSubtitleStackView)
+            $0.top.equalTo(reviewInfoStackView.snp.bottom).offset(5)
+            $0.left.equalTo(reviewInfoStackView)
             $0.bottom.equalToSuperview().inset(20)
         }
 

@@ -35,24 +35,33 @@ final class AppMetaInfoSectionView: BaseView {
 
     override func setStyle() {
         firstReviewCountLabel.do {
-            $0.text = "8.4만개의 평가"
-            $0.textColor = .systemGray
-            $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 12, weight: .bold)
+            $0.configureLabel(
+                "8.4만개의 평가",
+                color: .systemGray,
+                alignment: .center,
+                size: 12,
+                weight: .bold
+            )
         }
 
         firstRatingLabel.do {
-            $0.text = "4.0"
-            $0.textColor = .systemGray
-            $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 20, weight: .bold)
+            $0.configureLabel(
+                "4.0",
+                color: .systemGray,
+                alignment: .center,
+                size: 20,
+                weight: .bold
+            )
         }
 
         firstRatingStarLabel.do {
-            $0.text = "★★★★☆"
-            $0.textColor = .systemGray
-            $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 17, weight: .regular)
+            $0.configureLabel(
+                "★★★★☆",
+                color: .systemGray,
+                alignment: .center,
+                size: 17,
+                weight: .regular
+            )
         }
 
         ratingInfoStackView.do {
@@ -65,30 +74,37 @@ final class AppMetaInfoSectionView: BaseView {
             $0.spacing = 5
         }
 
-        firstVerticalDividerView.do {
-            $0.backgroundColor = .systemGray2
-        }
+        firstVerticalDividerView.do { $0.configureDivider() }
 
         prizeTitleLabel.do {
-            $0.text = "수상"
-            $0.textColor = .systemGray
-            $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 12, weight: .semibold)
+            $0.configureLabel(
+                "수상",
+                color: .systemGray,
+                alignment: .center,
+                size: 12,
+                weight: .semibold
+            )
         }
 
         prizeCategoryLabel.do {
-            $0.text = "에디터의\n선택"
-            $0.textColor = .systemGray
-            $0.textAlignment = .center
-            $0.numberOfLines = 2
-            $0.font = .systemFont(ofSize: 10, weight: .bold)
+            $0.configureLabel(
+                "에디터의\n선택",
+                color: .systemGray,
+                alignment: .center,
+                size: 10,
+                weight: .bold,
+                numberOfLines: 2
+            )
         }
 
         prizeSubtitleLabel.do {
-            $0.text = "앱"
-            $0.textColor = .systemGray
-            $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 15, weight: .semibold)
+            $0.configureLabel(
+                "앱",
+                color: .systemGray,
+                alignment: .center,
+                size: 15,
+                weight: .semibold
+            )
         }
 
         prizeInfoStackView.do {
@@ -101,29 +117,36 @@ final class AppMetaInfoSectionView: BaseView {
             $0.spacing = 5
         }
 
-        secondVerticalDividerView.do {
-            $0.backgroundColor = .systemGray2
-        }
+        secondVerticalDividerView.do { $0.configureDivider() }
 
         ageTitleLabel.do {
-            $0.text = "연령"
-            $0.textColor = .systemGray
-            $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 12, weight: .semibold)
+            $0.configureLabel(
+                "연령",
+                color: .systemGray,
+                alignment: .center,
+                size: 12,
+                weight: .semibold
+            )
         }
 
         ageInfoLabel.do {
-            $0.text = "4+"
-            $0.textColor = .systemGray
-            $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 20, weight: .bold)
+            $0.configureLabel(
+                "4+",
+                color: .systemGray,
+                alignment: .center,
+                size: 20,
+                weight: .bold
+            )
         }
 
         yearsOldLabel.do {
-            $0.text = "세"
-            $0.textColor = .systemGray
-            $0.textAlignment = .center
-            $0.font = .systemFont(ofSize: 15, weight: .semibold)
+            $0.configureLabel(
+                "세",
+                color: .systemGray,
+                alignment: .center,
+                size: 15,
+                weight: .semibold
+            )
         }
 
         ageInfoStackView.do {

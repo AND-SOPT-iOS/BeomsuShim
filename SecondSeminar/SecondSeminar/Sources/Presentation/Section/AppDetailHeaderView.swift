@@ -29,17 +29,10 @@ final class AppDetailHeaderView: BaseView {
             $0.layer.borderColor = UIColor.systemGray4.cgColor
         }
 
-        titleLabel.do {
-            $0.text = "토스"
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 20, weight: .semibold)
-        }
+        titleLabel.do { $0.configureLabel("토스", size: 20, weight: .semibold) }
 
         subtitleLabel.do {
-            $0.text = "금융이 쉬워진다"
-            $0.textColor = .systemGray
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 14, weight: .semibold)
+            $0.configureLabel("금융이 쉬워진다", color: .systemGray, size: 14, weight: .semibold)
         }
 
         titleStackView.do {

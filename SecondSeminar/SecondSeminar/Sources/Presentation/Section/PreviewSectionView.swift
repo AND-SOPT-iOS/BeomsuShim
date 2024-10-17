@@ -19,11 +19,7 @@ final class PreviewSectionView: BaseView {
     // MARK: - UI
 
     override func setStyle() {
-        previewTitleLabel.do {
-            $0.text = "미리 보기"
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 20, weight: .bold)
-        }
+        previewTitleLabel.do { $0.configureLabel("미리 보기", size: 20, weight: .bold) }
 
         previewImageView.do {
             $0.image = UIImage(named: "tossImageView")
@@ -41,9 +37,7 @@ final class PreviewSectionView: BaseView {
         }
 
         supportDeviceLabel.do {
-            $0.text = "iPhone"
-            $0.textColor = .systemGray
-            $0.font = .systemFont(ofSize: 12, weight: .bold)
+            $0.configureLabel("iPhone", color: .systemGray, size: 12, weight: .bold)
         }
     }
 

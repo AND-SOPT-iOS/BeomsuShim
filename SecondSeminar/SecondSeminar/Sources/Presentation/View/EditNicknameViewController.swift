@@ -80,11 +80,7 @@ final class EditNicknameViewController: BaseViewController {
     }
 
     override func setStyle() {
-        nicknameTitleLabel.do {
-            $0.text = "별명"
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 16, weight: .semibold)
-        }
+        nicknameTitleLabel.do { $0.configureLabel("별명", size: 16, weight: .semibold) }
 
         nicknameTextField.do {
             $0.placeholder = "별명"
@@ -103,11 +99,12 @@ final class EditNicknameViewController: BaseViewController {
         }
 
         descriptionLabel.do {
-            $0.text = "App Store, Apple 팟캐스트 및 Apple Books에서 제출하는 모든 리뷰에 표시할 별명을 업데이트하십시오."
-            $0.textColor = .systemGray
-            $0.textAlignment = .left
-            $0.numberOfLines = 0
-            $0.font = .systemFont(ofSize: 12, weight: .medium)
+            $0.configureLabel(
+                "App Store, Apple 팟캐스트 및 Apple Books에서 제출하는 모든 리뷰에 표시할 별명을 업데이트하십시오.",
+                color: .systemGray,
+                size: 12,
+                weight: .medium
+            )
         }
     }
 

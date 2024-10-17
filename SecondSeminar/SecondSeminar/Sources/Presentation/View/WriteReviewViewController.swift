@@ -176,16 +176,11 @@ final class WriteReviewViewController: BaseViewController {
         }
 
         titleLabel.do {
-            $0.text = "토스"
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 17, weight: .bold)
+            $0.configureLabel("토스", size: 17, weight: .bold)
         }
 
         subtitleLabel.do {
-            $0.text = "금융이 쉬워진다"
-            $0.textColor = .systemGray
-            $0.textAlignment = .left
-            $0.font = .systemFont(ofSize: 14, weight: .medium)
+            $0.configureLabel("금융이 쉬워진다", color: .systemGray, size: 14, weight: .medium)
         }
 
         titleStackView.do {
