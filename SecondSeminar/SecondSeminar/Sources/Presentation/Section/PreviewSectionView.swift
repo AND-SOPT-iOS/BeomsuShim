@@ -24,11 +24,11 @@ final class PreviewSectionView: BaseView {
         previewImageView.do {
             $0.image = UIImage(named: "tossImageView")
             $0.contentMode = .scaleAspectFit
-            $0.backgroundColor = #colorLiteral(red: 0.9560224414, green: 0.9657036662, blue: 0.9719848037, alpha: 1)
+            $0.backgroundColor = .previewBackgroundColor
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 20
             $0.layer.borderWidth = 1
-            $0.layer.borderColor = #colorLiteral(red: 0.8891773224, green: 0.8989797235, blue: 0.9022945762, alpha: 1)
+            $0.layer.borderColor = .previewBorderColor
         }
 
         supportDeviceImageView.do {
