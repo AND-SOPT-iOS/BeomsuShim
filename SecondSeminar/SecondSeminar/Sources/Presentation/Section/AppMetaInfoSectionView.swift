@@ -65,13 +65,11 @@ final class AppMetaInfoSectionView: BaseView {
         }
 
         ratingInfoStackView.do {
-            $0.addArrangedSubview(firstReviewCountLabel)
-            $0.addArrangedSubview(firstRatingLabel)
-            $0.addArrangedSubview(firstRatingStarLabel)
-            $0.axis = .vertical
-            $0.alignment = .center
-            $0.distribution = .fillProportionally
-            $0.spacing = 5
+            $0.configureStackView(
+                addArrangedSubviews: firstReviewCountLabel, firstRatingLabel, firstRatingStarLabel,
+                alignment: .center,
+                distribution: .fillProportionally
+            )
         }
 
         firstVerticalDividerView.do { $0.configureDivider() }
@@ -108,13 +106,11 @@ final class AppMetaInfoSectionView: BaseView {
         }
 
         prizeInfoStackView.do {
-            $0.addArrangedSubview(prizeTitleLabel)
-            $0.addArrangedSubview(prizeCategoryLabel)
-            $0.addArrangedSubview(prizeSubtitleLabel)
-            $0.axis = .vertical
-            $0.alignment = .center
-            $0.distribution = .fillProportionally
-            $0.spacing = 5
+            $0.configureStackView(
+                addArrangedSubviews: prizeTitleLabel, prizeCategoryLabel, prizeSubtitleLabel,
+                alignment: .center,
+                distribution: .fillProportionally
+            )
         }
 
         secondVerticalDividerView.do { $0.configureDivider() }
@@ -150,13 +146,11 @@ final class AppMetaInfoSectionView: BaseView {
         }
 
         ageInfoStackView.do {
-            $0.addArrangedSubview(ageTitleLabel)
-            $0.addArrangedSubview(ageInfoLabel)
-            $0.addArrangedSubview(yearsOldLabel)
-            $0.axis = .vertical
-            $0.alignment = .center
-            $0.distribution = .fillProportionally
-            $0.spacing = 5
+            $0.configureStackView(
+                addArrangedSubviews: ageTitleLabel, ageInfoLabel, yearsOldLabel,
+                alignment: .center,
+                distribution: .fillProportionally
+            )
         }
     }
 

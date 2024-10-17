@@ -192,13 +192,11 @@ final class AppFeedbackSectionView: BaseView {
         }
 
         reviewInfoStackView.do {
-            $0.addArrangedSubview(reviewRatingStarLabel)
-            $0.addArrangedSubview(reviewedDateLabel)
-            $0.addArrangedSubview(reviewerNameLabel)
-            $0.axis = .horizontal
-            $0.alignment = .fill
-            $0.distribution = .fill
-            $0.spacing = 5
+            $0.configureStackView(
+                addArrangedSubviews: reviewRatingStarLabel, reviewedDateLabel, reviewerNameLabel,
+                axis: .horizontal,
+                distribution: .fill
+            )
         }
 
         reviewContentLabel.do {
@@ -260,12 +258,11 @@ final class AppFeedbackSectionView: BaseView {
         }
 
         writeReviewAndAppSupportStackView.do {
-            $0.addArrangedSubview(writeReviewButton)
-            $0.addArrangedSubview(appSupportButton)
-            $0.axis = .horizontal
-            $0.alignment = .fill
-            $0.distribution = .fillEqually
-            $0.spacing = 10
+            $0.configureStackView(
+                addArrangedSubviews: writeReviewButton, appSupportButton,
+                axis: .horizontal,
+                spacing: 10
+            )
         }
     }
 

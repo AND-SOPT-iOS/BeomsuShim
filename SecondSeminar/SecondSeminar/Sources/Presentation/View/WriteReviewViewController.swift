@@ -184,12 +184,11 @@ final class WriteReviewViewController: BaseViewController {
         }
 
         titleStackView.do {
-            $0.addArrangedSubview(titleLabel)
-            $0.addArrangedSubview(subtitleLabel)
-            $0.axis = .vertical
-            $0.alignment = .leading
-            $0.distribution = .fillProportionally
-            $0.spacing = 5
+            $0.configureStackView(
+                addArrangedSubviews: titleLabel, subtitleLabel,
+                alignment: .leading,
+                distribution: .fillProportionally
+            )
         }
 
         dividerView.do { $0.configureDivider() }
@@ -209,12 +208,10 @@ final class WriteReviewViewController: BaseViewController {
         }
 
         tapToRateStackView.do {
-            $0.addArrangedSubview(tapToRateTitleLabel)
-            $0.addArrangedSubview(starsStackView)
-            $0.axis = .horizontal
-            $0.alignment = .fill
-            $0.distribution = .fillEqually
-            $0.spacing = 5
+            $0.configureStackView(
+                addArrangedSubviews: tapToRateTitleLabel, starsStackView,
+                axis: .horizontal
+            )
         }
 
         reviewTitleLabel.do {

@@ -36,12 +36,11 @@ final class AppDetailHeaderView: BaseView {
         }
 
         titleStackView.do {
-            $0.addArrangedSubview(titleLabel)
-            $0.addArrangedSubview(subtitleLabel)
-            $0.axis = .vertical
-            $0.alignment = .leading
-            $0.distribution = .fillProportionally
-            $0.spacing = 3
+            $0.configureStackView(
+                addArrangedSubviews: titleLabel, subtitleLabel,
+                alignment: .leading,
+                spacing: 3
+            )
         }
 
         installButton.do {

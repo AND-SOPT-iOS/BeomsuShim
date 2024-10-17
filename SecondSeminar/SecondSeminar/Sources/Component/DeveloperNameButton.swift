@@ -52,12 +52,12 @@ final class DeveloperNameButton: UIView {
         }
 
         titleStackView.do {
-            $0.addArrangedSubview(titleLabel)
-            $0.addArrangedSubview(subtitleLabel)
-            $0.axis = .vertical
-            $0.alignment = .leading
-            $0.distribution = .fillProportionally
-            $0.spacing = 2
+            $0.configureStackView(
+                addArrangedSubviews: titleLabel, subtitleLabel,
+                alignment: .leading,
+                distribution: .fillProportionally,
+                spacing: 2
+            )
         }
 
         arrowImageView.do {
@@ -73,9 +73,7 @@ final class DeveloperNameButton: UIView {
     }
 
     private func setUI() {
-        addSubview(titleStackView)
-        addSubview(arrowImageView)
-        addSubview(button)
+        addSubviews(titleStackView, arrowImageView, button)
     }
 
     private func setLayout() {
@@ -89,8 +87,6 @@ final class DeveloperNameButton: UIView {
             $0.right.equalToSuperview()
         }
 
-        button.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        button.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
 }
