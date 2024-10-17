@@ -103,7 +103,8 @@ final class EditNicknameViewController: BaseViewController {
                 "App Store, Apple 팟캐스트 및 Apple Books에서 제출하는 모든 리뷰에 표시할 별명을 업데이트하십시오.",
                 color: .systemGray,
                 size: 12,
-                weight: .medium
+                weight: .medium,
+                numberOfLines: 0
             )
         }
     }

@@ -15,12 +15,12 @@ extension UILabel {
         alignment: NSTextAlignment? = .left,
         size: CGFloat,
         weight: UIFont.Weight,
-        numberOfLines: Int? = 0
+        numberOfLines: Int? = 1
     ) {
         self.text = text
         textColor = color
         textAlignment = alignment ?? .left
         font = .systemFont(ofSize: size, weight: weight)
-        self.numberOfLines = numberOfLines ?? 0
+        self.numberOfLines = numberOfLines ?? 1
     }
 }

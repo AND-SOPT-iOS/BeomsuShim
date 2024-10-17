@@ -159,15 +159,16 @@ final class AppFeedbackSectionView: BaseView {
             $0.layer.shadowRadius = 5
         }
 
-        reviewTitleLabel.do { $0.configureLabel("앤솝 iOS YB 35기", size: 15, weight: .medium) }
+        reviewTitleLabel.do {
+            $0.configureLabel("앤솝 iOS YB 35기", size: 15, weight: .medium, numberOfLines: 0)
+        }
 
         reviewRatingStarLabel.do {
             $0.configureLabel(
                 "★ ★ ★ ★ ★",
                 alignment: .left,
                 size: 15,
-                weight: .medium,
-                numberOfLines: 1
+                weight: .medium
             )
         }
 
@@ -181,7 +182,13 @@ final class AppFeedbackSectionView: BaseView {
         }
 
         reviewerNameLabel.do {
-            $0.configureLabel("• INTJ", color: .systemGray, size: 15, weight: .medium)
+            $0.configureLabel(
+                "• INTJ",
+                color: .systemGray,
+                size: 15,
+                weight: .medium,
+                numberOfLines: 0
+            )
         }
 
         reviewInfoStackView.do {
@@ -199,7 +206,8 @@ final class AppFeedbackSectionView: BaseView {
                 "동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세",
                 color: .systemGray,
                 size: 15,
-                weight: .medium
+                weight: .medium,
+                numberOfLines: 0
             )
         }
 

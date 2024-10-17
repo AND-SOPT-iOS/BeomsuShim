@@ -40,8 +40,7 @@ final class AppMetaInfoSectionView: BaseView {
                 color: .systemGray,
                 alignment: .center,
                 size: 12,
-                weight: .bold,
-                numberOfLines: 1
+                weight: .bold
             )
         }
 
@@ -51,8 +50,7 @@ final class AppMetaInfoSectionView: BaseView {
                 color: .systemGray,
                 alignment: .center,
                 size: 20,
-                weight: .bold,
-                numberOfLines: 1
+                weight: .bold
             )
         }
 
@@ -62,8 +60,7 @@ final class AppMetaInfoSectionView: BaseView {
                 color: .systemGray,
                 alignment: .center,
                 size: 17,
-                weight: .regular,
-                numberOfLines: 1
+                weight: .regular
             )
         }
 
@@ -85,8 +82,7 @@ final class AppMetaInfoSectionView: BaseView {
                 color: .systemGray,
                 alignment: .center,
                 size: 12,
-                weight: .semibold,
-                numberOfLines: 1
+                weight: .semibold
             )
         }
 
@@ -107,8 +103,7 @@ final class AppMetaInfoSectionView: BaseView {
                 color: .systemGray,
                 alignment: .center,
                 size: 15,
-                weight: .semibold,
-                numberOfLines: 1
+                weight: .semibold
             )
         }
 
@@ -130,8 +125,7 @@ final class AppMetaInfoSectionView: BaseView {
                 color: .systemGray,
                 alignment: .center,
                 size: 12,
-                weight: .semibold,
-                numberOfLines: 1
+                weight: .semibold
             )
         }
 
@@ -141,8 +135,7 @@ final class AppMetaInfoSectionView: BaseView {
                 color: .systemGray,
                 alignment: .center,
                 size: 20,
-                weight: .bold,
-                numberOfLines: 1
+                weight: .bold
             )
         }
 
@@ -152,8 +145,7 @@ final class AppMetaInfoSectionView: BaseView {
                 color: .systemGray,
                 alignment: .center,
                 size: 15,
-                weight: .semibold,
-                numberOfLines: 1
+                weight: .semibold
             )
         }
 
