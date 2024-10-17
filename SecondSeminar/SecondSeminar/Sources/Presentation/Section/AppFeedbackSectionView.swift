@@ -106,9 +106,19 @@ final class AppFeedbackSectionView: BaseView {
     private func updateStarImages() {
         for (index, button) in tapToRateButton.enumerated() {
             if index < currentRating {
-                button.setImage(filledStarImage, for: .normal)
+                button.setImage(
+                    filledStarImage?.withConfiguration(
+                        UIImage.SymbolConfiguration(weight: .semibold)
+                    ),
+                    for: .normal
+                )
             } else {
-                button.setImage(emptyStarImage, for: .normal)
+                button.setImage(
+                    emptyStarImage?.withConfiguration(
+                        UIImage.SymbolConfiguration(weight: .semibold)
+                    ),
+                    for: .normal
+                )
             }
         }
     }
