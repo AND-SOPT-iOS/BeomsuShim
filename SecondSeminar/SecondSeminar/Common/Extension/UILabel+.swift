@@ -41,7 +41,7 @@ extension UILabel {
         )
 
         self.attributedText = attributedString
-        self.lineBreakMode = .byTruncatingTail
+        self.lineBreakMode = lineBreakMode ?? .byTruncatingTail
         self.textAlignment = .left
         self.numberOfLines = numberOfLines ?? 0
     }

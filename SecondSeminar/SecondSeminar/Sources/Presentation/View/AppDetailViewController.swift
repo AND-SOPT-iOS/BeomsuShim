@@ -28,6 +28,7 @@ final class AppDetailViewController: BaseViewController {
     private let thirdHorizontalDividerView = UIView()
 
     private var isExpanded = false
+    private var isTruncated: Bool = false
 
     // MARK: - Lifecycle
 
@@ -43,6 +44,12 @@ final class AppDetailViewController: BaseViewController {
         super.viewWillAppear(animated)
 
         setNavigationBarStyle()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        checkDescriptionLabelLines()
     }
 
     // MARK: - Actions
@@ -127,6 +134,32 @@ final class AppDetailViewController: BaseViewController {
         navigationController?.pushViewController(viewController, animated: true)
         navigationItem.title = "뒤로"
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    private func checkDescriptionLabelLines() {
+        guard let text = whatsNewSectionView.updatedDescriptionLabel.text,
+              let font = whatsNewSectionView.updatedDescriptionLabel.font
+        else {
+            return
+        }
+
+        let labelWidth = whatsNewSectionView.updatedDescriptionLabel.frame.width
+        let labelHeight = whatsNewSectionView.updatedDescriptionLabel.frame.height
+        let maxSize = CGSize(width: labelWidth, height: .greatestFiniteMagnitude)
+        let textHeight = text.boundingRect(
+            with: maxSize,
+            options: .usesLineFragmentOrigin,
+            attributes: [.font: font],
+            context: nil
+        ).height
+
+        if isExpanded {
+            whatsNewSectionView.seeMoreButton.isHidden = false
+        } else {
+            let isTextTruncated = textHeight > labelHeight
+            whatsNewSectionView.seeMoreButton.isHidden = !isTextTruncated
+            isTruncated = isTextTruncated
+        }
     }
 
     // MARK: - UI
@@ -233,7 +266,7 @@ final class AppDetailViewController: BaseViewController {
         }
 
         previewSectionView.snp.makeConstraints {
-            $0.top.equalTo(whatsNewSectionView.snp.bottom).offset(30)
+            $0.top.equalTo(whatsNewSectionView.snp.bottom).offset(10)
             $0.left.right.equalToSuperview().inset(20)
         }
 
