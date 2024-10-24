@@ -146,7 +146,7 @@ final class AppDetailViewController: BaseViewController {
         let labelWidth = whatsNewSectionView.updatedDescriptionLabel.frame.width
         let labelHeight = whatsNewSectionView.updatedDescriptionLabel.frame.height
         let maxSize = CGSize(width: labelWidth, height: .greatestFiniteMagnitude)
-        let textHeight = text.boundingRect(
+        let calculatedTextHeight = text.boundingRect(
             with: maxSize,
             options: .usesLineFragmentOrigin,
             attributes: [.font: font],
@@ -156,7 +156,7 @@ final class AppDetailViewController: BaseViewController {
         if isExpanded {
             whatsNewSectionView.seeMoreButton.isHidden = false
         } else {
-            let isTextTruncated = textHeight > labelHeight
+            let isTextTruncated = calculatedTextHeight > labelHeight
             whatsNewSectionView.seeMoreButton.isHidden = !isTextTruncated
             isTruncated = isTextTruncated
         }
