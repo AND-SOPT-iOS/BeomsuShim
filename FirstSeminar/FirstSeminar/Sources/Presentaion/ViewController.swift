@@ -26,8 +26,7 @@ final class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleTextField.delegate = self
-        contentTextView.delegate = self
+        setDelegates()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -83,78 +82,9 @@ final class ViewController: BaseViewController {
 
     // MARK: - Helpers
 
-    private func updateNavigationTitle() {
-        navigationItem.title = switchPushMode ? "모달" : "내비게이션"
-    }
-
-    private func applyFadeAnimationToNavigationBar() {
-        fadeTextAnimation.duration = 0.3
-        fadeTextAnimation.type = .fade
-        navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
-    }
-
-    private func showPlaceholder() {
-        if contentTextView.text.isEmpty {
-            contentTextView.text = placeholderText
-            contentTextView.textColor = UIColor.systemGray3
-        }
-    }
-
-    private func removePlaceholder() {
-        if contentTextView.text == placeholderText {
-            contentTextView.text = nil
-            contentTextView.textColor = UIColor.label
-        }
-    }
-
-    private func configureToolbar() {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-
-        let previousButton = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.up"),
-            style: .plain,
-            target: self,
-            action: #selector(previousField)
-        )
-
-        let nextButton = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.down"),
-            style: .plain,
-            target: self,
-            action: #selector(nextField)
-        )
-
-        let flexSpace = UIBarButtonItem(
-            barButtonSystemItem: .flexibleSpace,
-            target: nil,
-            action: nil
-        )
-
-        let doneButton = UIBarButtonItem(
-            title: "키보드 내리기",
-            style: .plain,
-            target: self,
-            action: #selector(dismissKeyboard)
-        )
-
-        toolbar.items = [previousButton, nextButton, flexSpace, doneButton]
-
-        titleTextField.inputAccessoryView = toolbar
-        contentTextView.inputAccessoryView = toolbar
-    }
-
-    private func showAlertView() {
-        let alertController = UIAlertController(
-            title: "빈값이 있습니다.",
-            message: "필드를 모두 채워주세요.",
-            preferredStyle: .alert
-        )
-
-        let okAction = UIAlertAction(title: "확인", style: .default)
-        alertController.addAction(okAction)
-
-        present(alertController, animated: true)
+    private func setDelegates() {
+        titleTextField.delegate = self
+        contentTextView.delegate = self
     }
 
     // MARK: - UI
@@ -247,5 +177,59 @@ extension ViewController: UITextViewDelegate {
         showPlaceholder()
         textView.layer.borderColor = UIColor.systemGray4.cgColor
         textView.layer.borderWidth = 0.5
+    }
+}
+
+// MARK: - UI Helpers
+
+private extension ViewController {
+
+    func updateNavigationTitle() {
+        navigationItem.title = switchPushMode ? "모달" : "내비게이션"
+    }
+
+    func applyFadeAnimationToNavigationBar() {
+        fadeTextAnimation.duration = 0.3
+        fadeTextAnimation.type = .fade
+        navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
+    }
+
+    func showPlaceholder() {
+        if contentTextView.text.isEmpty {
+            contentTextView.text = placeholderText
+            contentTextView.textColor = UIColor.systemGray3
+        }
+    }
+
+    func removePlaceholder() {
+        if contentTextView.text == placeholderText {
+            contentTextView.text = nil
+            contentTextView.textColor = UIColor.label
+        }
+    }
+
+    func configureToolbar() {
+        let toolbar = KeyboardToolbarHelper.createToolbar(
+            target: self,
+            previousSelector: #selector(previousField),
+            nextSelector: #selector(nextField),
+            dismissSelector: #selector(dismissKeyboard)
+        )
+
+        titleTextField.inputAccessoryView = toolbar
+        contentTextView.inputAccessoryView = toolbar
+    }
+
+    func showAlertView() {
+        let alertController = UIAlertController(
+            title: "빈값이 있습니다.",
+            message: "필드를 모두 채워주세요.",
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true)
     }
 }
