@@ -24,7 +24,7 @@ final class AppMetaInfoSectionView: BaseView {
     private let prizeCategoryLabel = UILabel()
     private let prizeInfoStackView = UIStackView()
 
-    private let secondVerticalDividerView = UILabel()
+    private let secondVerticalDividerView = UIView()
 
     private let ageTitleLabel = UILabel()
     private let ageInfoLabel = UILabel()
