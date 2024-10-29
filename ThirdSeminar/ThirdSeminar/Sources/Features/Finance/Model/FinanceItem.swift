@@ -163,7 +163,7 @@ extension Essential {
             subtitle: "금융",
             downloadState: .reinstall,
             price: nil,
-            hasInAppPurchases: false
+            hasInAppPurchases: Bool.random()
         ),
         .init(
             appIcon: "monimo",
@@ -174,7 +174,7 @@ extension Essential {
             hasInAppPurchases: Bool.random()
         ),
         .init(
-            appIcon: "naverpay",
+            appIcon: "kbank",
             title: "Money Coach Budget Manager Pro",
             subtitle: "Expense Tracker, Bill Planner",
             downloadState: .paid,
@@ -190,7 +190,7 @@ extension Essential {
             hasInAppPurchases: Bool.random()
         ),
         .init(
-            appIcon: "silson24",
+            appIcon: "kakaobank",
             title: "iFinance 5",
             subtitle: "금융",
             downloadState: .paid,
@@ -201,40 +201,16 @@ extension Essential {
             appIcon: "toss",
             title: "MoneyStats - Budget Planner",
             subtitle: "금융",
-            downloadState: .install,
+            downloadState: .installed,
             price: nil,
             hasInAppPurchases: Bool.random()
         ),
         .init(
-            appIcon: "hyundaicard",
+            appIcon: "silson24",
             title: "Pockey - 포켓 머니 매니저",
             subtitle: "용돈 관리 등",
-            downloadState: .install,
+            downloadState: .reinstall,
             price: nil,
-            hasInAppPurchases: Bool.random()
-        ),
-        .init(
-            appIcon: "hyundaidepartment",
-            title: "MarketWatch - News & Data",
-            subtitle: "금융",
-            downloadState: .install,
-            price: nil,
-            hasInAppPurchases: Bool.random()
-        ),
-        .init(
-            appIcon: "kakaobank",
-            title: "MoneyControl Spending Tracker",
-            subtitle: "금융",
-            downloadState: .install,
-            price: nil,
-            hasInAppPurchases: Bool.random()
-        ),
-        .init(
-            appIcon: "kakaopay",
-            title: "Spendy - Spendings reimagined",
-            subtitle: "금융",
-            downloadState: .paid,
-            price: 4_400,
             hasInAppPurchases: Bool.random()
         )
     ]
