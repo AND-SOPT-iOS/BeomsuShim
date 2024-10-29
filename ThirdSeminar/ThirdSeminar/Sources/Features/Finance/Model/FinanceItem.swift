@@ -153,7 +153,7 @@ extension Essential {
             appIcon: "kbpay",
             title: "Buddy: Budget Planner App",
             subtitle: "금융",
-            downloadState: .install,
+            downloadState: .update,
             price: nil,
             hasInAppPurchases: Bool.random()
         ),
@@ -161,9 +161,9 @@ extension Essential {
             appIcon: "mobileTmoney",
             title: "YNAB",
             subtitle: "금융",
-            downloadState: .install,
+            downloadState: .reinstall,
             price: nil,
-            hasInAppPurchases: Bool.random()
+            hasInAppPurchases: false
         ),
         .init(
             appIcon: "monimo",
@@ -177,15 +177,15 @@ extension Essential {
             appIcon: "naverpay",
             title: "Money Coach Budget Manager Pro",
             subtitle: "Expense Tracker, Bill Planner",
-            downloadState: .install,
-            price: nil,
+            downloadState: .paid,
+            price: 990,
             hasInAppPurchases: Bool.random()
         ),
         .init(
             appIcon: "pass",
             title: "CardPointers for Credit Cards",
             subtitle: "금융",
-            downloadState: .install,
+            downloadState: .installed,
             price: nil,
             hasInAppPurchases: Bool.random()
         ),
