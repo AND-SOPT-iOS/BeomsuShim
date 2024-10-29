@@ -195,7 +195,7 @@ final class FeaturedCell: BaseCollectionViewCell {
 
         appIconImageView.snp.makeConstraints {
             $0.left.equalTo(appContainerView).inset(10)
-            $0.size.equalTo(30)
+            $0.size.equalTo(40)
         }
 
         appInfoView.snp.makeConstraints {

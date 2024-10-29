@@ -127,7 +127,7 @@ final class EssentialCell: BaseCollectionViewCell {
     override func setupConstraints() {
         appIconImageView.snp.makeConstraints {
             $0.left.equalToSuperview()
-            $0.size.equalTo(50)
+            $0.size.equalTo(60)
         }
 
         appInfoView.snp.makeConstraints {
