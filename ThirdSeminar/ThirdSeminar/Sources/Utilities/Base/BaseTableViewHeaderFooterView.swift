@@ -1,8 +1,8 @@
 //
-//  BaseTableViewCell.swift
+//  BaseTableViewHeaderFooterView.swift
 //  ThirdSeminar
 //
-//  Created by RAFA on 10/27/24.
+//  Created by RAFA on 10/28/24.
 //
 
 import UIKit
@@ -10,20 +10,20 @@ import UIKit
 import SnapKit
 import Then
 
-class BaseTableViewCell: UITableViewCell {
+class BaseTableViewHeaderFooterView: UITableViewHeaderFooterView {
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
 
         setupStyle()
         setupSubviews()
         setupConstraints()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func setupStyle() { contentView.backgroundColor = .systemBackground }
 
     func setupSubviews() { }

@@ -1,5 +1,5 @@
 //
-//  BaseTableViewCell.swift
+//  BaseCollectionViewCell.swift
 //  ThirdSeminar
 //
 //  Created by RAFA on 10/27/24.
@@ -10,10 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
-class BaseTableViewCell: UITableViewCell {
+class BaseCollectionViewCell: UICollectionViewCell {
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
         setupStyle()
         setupSubviews()
