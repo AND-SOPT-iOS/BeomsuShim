@@ -11,10 +11,36 @@ final class FinanceSectionHeaderView: BaseCollectionReusableView {
 
     // MARK: - Properties
 
-    private let headerButton = UIButton()
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let rightArrowImageView = UIImageView()
+
+    var onHeaderTapped: (() -> Void)?
+
+    // MARK: - Initializer
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setTapGesture()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Actions
+
+    @objc private func handleHeaderTapped() {
+        onHeaderTapped?()
+    }
+
+    // MARK: - Gestures
+
+    private func setTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleHeaderTapped))
+        addGestureRecognizer(tapGesture)
+    }
 
     // MARK: - Helpers
 
@@ -47,19 +73,12 @@ final class FinanceSectionHeaderView: BaseCollectionReusableView {
     }
 
     override func setupSubviews() {
-        addSubview(headerButton)
-        headerButton.addSubviews(titleLabel, rightArrowImageView, subtitleLabel)
+        addSubviews(titleLabel, rightArrowImageView, subtitleLabel)
     }
 
     override func setupConstraints() {
-        headerButton.snp.makeConstraints {
-            $0.top.equalTo(40)
-            $0.horizontalEdges.equalToSuperview()
-            $0.bottom.equalToSuperview()
-        }
-
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalTo(40)
             $0.left.equalTo(20)
         }
 

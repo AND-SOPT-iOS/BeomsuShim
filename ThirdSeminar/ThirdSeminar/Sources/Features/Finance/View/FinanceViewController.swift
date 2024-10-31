@@ -119,6 +119,10 @@ final class FinanceViewController: BaseViewController {
             }
 
             sectionHeader?.configure(headerData)
+            sectionHeader?.onHeaderTapped = {
+                let controller = PopularChartViewController()
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
 
             return sectionHeader
         }
@@ -263,8 +267,12 @@ extension FinanceViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
 
-        let controller = AppDetailViewController()
-        controller.title = item.title
-        navigationController?.pushViewController(controller, animated: true)
+        if item.sectionType == .freeRanking && indexPath.item == 0 {
+            let controller = AppDetailViewController()
+            controller.title = item.title
+            navigationController?.pushViewController(controller, animated: true)
+        } else {
+            print("DEBUG: Section >>> \(indexPath.section) / Item >>> \(indexPath.item)")
+        }
     }
 }
