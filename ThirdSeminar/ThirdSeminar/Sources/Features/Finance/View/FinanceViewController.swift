@@ -127,7 +127,7 @@ final class FinanceViewController: BaseViewController {
     private func applySnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<FinanceSectionKind, Item>()
 
-        snapshot.appendSections([.featured, .essential, .paidRanking, .freeRanking])
+        snapshot.appendSections(FinanceSectionKind.allCases)
         snapshot.appendItems(Item.items(for: .featured), toSection: .featured)
         snapshot.appendItems(Item.items(for: .essential), toSection: .essential)
         snapshot.appendItems(Item.items(for: .paidRanking), toSection: .paidRanking)

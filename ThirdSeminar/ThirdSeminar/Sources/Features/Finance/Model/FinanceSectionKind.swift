@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum FinanceSectionKind: Int, CaseIterable {
+enum FinanceSectionKind: CaseIterable {
     case featured, essential, paidRanking, freeRanking
 }
