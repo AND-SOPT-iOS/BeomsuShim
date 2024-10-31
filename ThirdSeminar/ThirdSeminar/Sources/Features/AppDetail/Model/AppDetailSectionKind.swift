@@ -10,4 +10,6 @@ import Foundation
 enum AppDetailSectionKind: Int, CaseIterable {
     case header
     case whatsNew
+    case developerInfo
+    case feedback
 }
