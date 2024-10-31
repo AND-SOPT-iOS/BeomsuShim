@@ -30,8 +30,8 @@ final class FeaturedCell: BaseCollectionViewCell {
 
     // MARK: - Helpers
 
-    func configure(_ item: Featured) {
-        categoryLabel.text = item.category
+    func configure(_ item: Item) {
+        categoryLabel.text = item.category?.categoryTitle
         titleLabel.text = item.title
         descriptionLabel.text = item.description
         appContainerView.backgroundColor = item.backgroundColor
@@ -39,10 +39,10 @@ final class FeaturedCell: BaseCollectionViewCell {
         appNameLabel.text = item.title
         subtitleLabel.text = item.subtitle
         updateInstallButtonTitle(for: item)
-        updateInAppPurchasesLabelVisibility(isVisible: item.hasInAppPurchases)
+        updateInAppPurchasesVisibility(isVisible: item.hasInAppPurchases)
     }
 
-    private func updateInstallButtonTitle(for item: Featured) {
+    private func updateInstallButtonTitle(for item: Item) {
         if item.downloadState == .paid {
             guard let price = item.price else { return }
 
@@ -70,7 +70,7 @@ final class FeaturedCell: BaseCollectionViewCell {
         }
     }
 
-    private func updateInAppPurchasesLabelVisibility(isVisible: Bool) {
+    private func updateInAppPurchasesVisibility(isVisible: Bool) {
         guard inAppPurchasesLabel.superview == nil else { return }
 
         if isVisible {
