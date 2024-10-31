@@ -17,3 +17,4 @@ extension ReusableIdentifier where Self: UIView {
 }
 
 extension UICollectionReusableView: ReusableIdentifier { }
+extension UITableViewCell: ReusableIdentifier { }
