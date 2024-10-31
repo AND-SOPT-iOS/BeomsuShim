@@ -1,13 +1,13 @@
 //
-//  EssentialCell.swift
+//  BaseItemCell.swift
 //  ThirdSeminar
 //
-//  Created by RAFA on 10/27/24.
+//  Created by RAFA on 10/31/24.
 //
 
 import UIKit
 
-final class EssentialCell: BaseCollectionViewCell {
+class BaseItemCell: BaseCollectionViewCell {
 
     // MARK: - Properties
 
@@ -20,7 +20,7 @@ final class EssentialCell: BaseCollectionViewCell {
 
     // MARK: - Helpers
 
-    func configure(_ item: Essential) {
+    func configure(_ item: Item) {
         appIconImageView.image = UIImage(named: item.appIcon)
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle
@@ -28,7 +28,7 @@ final class EssentialCell: BaseCollectionViewCell {
         inAppPurchasesLabel.isHidden = !item.hasInAppPurchases
     }
 
-    private func updateInstallButtonTitle(for item: Essential) {
+    private func updateInstallButtonTitle(for item: Item) {
         installButton.setAttributedTitle(nil, for: .normal)
         installButton.setImage(nil, for: .normal)
         installButton.backgroundColor = .clear
