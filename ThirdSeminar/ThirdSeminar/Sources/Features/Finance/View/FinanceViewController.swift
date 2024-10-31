@@ -263,7 +263,7 @@ extension FinanceViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
 
-        let controller = DetailViewController()
+        let controller = AppDetailViewController()
         controller.title = item.title
         navigationController?.pushViewController(controller, animated: true)
     }
