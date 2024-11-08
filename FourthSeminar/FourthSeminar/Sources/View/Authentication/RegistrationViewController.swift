@@ -42,6 +42,9 @@ final class RegistrationViewController: BaseViewController {
 
         setAddTargets()
         setDelegates()
+        setupNavigationBar()
+        setupBackButton()
+        hideKeyboardWhenTappedAround()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +77,31 @@ final class RegistrationViewController: BaseViewController {
                 actionTitle: "확인"
             )
             return
+        }
+
+        AuthService.register(
+            username: username,
+            password: password,
+            hobby: hobby
+        ) { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case .success:
+                self.showAlert(
+                    title: "회원가입 성공 🎉",
+                    message: "회원가입이 완료되었습니다. 로그인 화면으로 돌아갑니다.",
+                    actionTitle: "확인"
+                ) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            case .failure(let error):
+                self.showAlert(
+                    title: "회원가입 실패 😢",
+                    message: error.errorMessage,
+                    actionTitle: "확인"
+                )
+            }
         }
     }
 
