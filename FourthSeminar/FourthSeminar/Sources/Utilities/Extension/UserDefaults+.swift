@@ -10,4 +10,5 @@ import Foundation
 extension UserDefaults {
 
     static let authToken = "authToken"
+    static let username = "username"
 }
