@@ -53,11 +53,11 @@ final class LoginViewController: BaseViewController {
 
             switch result {
             case .success(let token):
-                let controller = ViewController(token: token, username: username)
-                let navigationController = UINavigationController(rootViewController: controller)
-                navigationController.modalPresentationStyle = .fullScreen
-                navigationController.navigationBar.prefersLargeTitles = true
-                present(navigationController, animated: true)
+                TokenManager.shared.saveToken(token)
+                TokenManager.shared.saveUsername(username)
+                let controller = MainTabBarController(token: token, username: username)
+                controller.modalPresentationStyle = .fullScreen
+                present(controller, animated: true)
             case .failure(let error):
                 showAlert(
                     title: "로그인 실패 😢",
