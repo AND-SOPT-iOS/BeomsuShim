@@ -18,11 +18,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let vc = LoginViewController()
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
 
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: vc)
-        window?.makeKeyAndVisible()
+        if let token = TokenManager.shared.getToken(),
+           let username = TokenManager.shared.getUsername() {
+            let mainTabBarController = MainTabBarController(token: token, username: username)
+            window.rootViewController = mainTabBarController
+        } else {
+            let loginViewController = LoginViewController()
+            let navigationController = UINavigationController(rootViewController: loginViewController)
+            window.rootViewController = navigationController
+        }
+
+        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) { }
