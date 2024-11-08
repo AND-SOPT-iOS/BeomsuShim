@@ -24,6 +24,7 @@ final class LoginViewController: BaseViewController {
 
         setAddTargets()
         setDelegates()
+        hideKeyboardWhenTappedAround()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +46,25 @@ final class LoginViewController: BaseViewController {
                 actionTitle: "확인"
             )
             return
+        }
+
+        AuthService.login(username: username, password: password) { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case .success(let token):
+                let controller = ViewController(token: token, username: username)
+                let navigationController = UINavigationController(rootViewController: controller)
+                navigationController.modalPresentationStyle = .fullScreen
+                navigationController.navigationBar.prefersLargeTitles = true
+                present(navigationController, animated: true)
+            case .failure(let error):
+                showAlert(
+                    title: "로그인 실패 😢",
+                    message: error.errorMessage,
+                    actionTitle: "확인"
+                )
+            }
         }
     }
 
