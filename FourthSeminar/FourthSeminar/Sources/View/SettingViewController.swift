@@ -29,6 +29,7 @@ final class SettingViewController: BaseViewController {
         super.viewDidLoad()
 
         setAddTargets()
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - Actions
@@ -149,4 +150,4 @@ final class SettingViewController: BaseViewController {
 
 // MARK: - Protocols
 
-extension SettingViewController: AlertDisplayable {}
+extension SettingViewController: AlertDisplayable, KeyboardDismissible {}
