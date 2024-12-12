@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                FeaturedView()
+                    .listRowSeparator(.hidden)
+                EssentialView()
+                    .listRowSeparator(.hidden)
+                PaidRankingView()
+                    .listRowSeparator(.hidden)
+                FreeRankingView()
+                    .listRowSeparator(.hidden)
+            }
+            .listStyle(.plain)
+            .navigationTitle("금융")
         }
-        .padding()
     }
 }
 
