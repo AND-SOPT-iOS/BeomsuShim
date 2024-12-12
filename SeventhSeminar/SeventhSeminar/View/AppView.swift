@@ -39,5 +39,5 @@ struct AppView: View {
 }
 
 #Preview {
-    AppView()
+    AppView(app: .init(title: "토스", description: "금융이 쉬워진다"))
 }
